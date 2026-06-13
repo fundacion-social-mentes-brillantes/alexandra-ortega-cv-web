@@ -147,7 +147,7 @@ img { max-width: 100%; display: block; }
 .nav__brand-text { font-size: 1rem; letter-spacing: .05em; font-weight: 400; }
 .nav__brand-text em { font-family: var(--font-display); font-style: italic; color: var(--lavender); }
 
-.nav__links { display: flex; align-items: center; gap: 1.7rem; }
+.nav__links { display: flex; align-items: center; gap: 1.5rem; }
 .nav__links a {
   position: relative; text-decoration: none;
   font-size: .92rem; font-weight: 400; letter-spacing: .03em;
@@ -240,7 +240,7 @@ img { max-width: 100%; display: block; }
 
 .hero__roles {
   margin-top: .9rem;
-  font-size: .92rem; letter-spacing: .18em; text-transform: uppercase;
+  font-size: .9rem; letter-spacing: .14em; text-transform: uppercase;
   color: rgba(185, 167, 230, .9);
   opacity: 0; animation: rise .9s .72s ease forwards;
 }
@@ -281,7 +281,7 @@ img { max-width: 100%; display: block; }
 .hero__badge {
   position: absolute; right: -8px; bottom: 6px;
   display: flex; flex-direction: column; gap: .1rem;
-  width: 168px; padding: 1rem 1.2rem;
+  width: 178px; padding: 1rem 1.2rem;
   background: rgba(34, 24, 51, .72);
   border: 1px solid rgba(185, 167, 230, .35);
   border-radius: 18px;
@@ -289,7 +289,7 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--shadow);
 }
 .hero__badge strong {
-  font-family: var(--font-display); font-size: 1.7rem; font-weight: 500;
+  font-family: var(--font-display); font-size: 1.4rem; font-weight: 500;
   color: var(--gold-soft);
 }
 .hero__badge span { font-size: .76rem; line-height: 1.35; color: rgba(250,247,242,.85); }
@@ -313,7 +313,7 @@ img { max-width: 100%; display: block; }
 @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
 @keyframes bloom { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: none; } }
 
-/* ── Manifiesto / Voz ───────────────────────────────────── */
+/* ── Manifiesto / Voz / Perfil ──────────────────────────── */
 .voice { text-align: center; }
 .voice .section__eyebrow::after { content: ""; width: 42px; height: 1px; background: var(--gold); }
 
@@ -325,7 +325,8 @@ img { max-width: 100%; display: block; }
 }
 .voice__statement em { font-style: italic; color: var(--plum); }
 
-.voice__text { max-width: 62ch; margin: 0 auto 2.4rem; color: var(--text-soft); font-size: 1.05rem; }
+.voice__text { max-width: 64ch; margin: 0 auto 1.4rem; color: var(--text-soft); font-size: 1.05rem; }
+.voice__text:last-of-type { margin-bottom: 2.4rem; }
 .voice__text strong { font-weight: 500; color: var(--plum); }
 
 .voice__pillars { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
@@ -406,6 +407,168 @@ img { max-width: 100%; display: block; }
   color: var(--ink); margin-bottom: .4rem;
 }
 .timeline__body p { font-size: .97rem; color: var(--text-soft); max-width: 58ch; }
+
+/* ── Cumbre Global de Salud Mental (sección oscura) ─────── */
+.summit {
+  position: relative;
+  background:
+    radial-gradient(50% 55% at 20% 12%, rgba(109, 79, 161, .4), transparent 70%),
+    linear-gradient(160deg, #1c1429, var(--ink) 55%, #18102a 100%);
+  color: var(--cream);
+  overflow: hidden;
+}
+.summit__glow {
+  position: absolute; width: 520px; height: 520px; right: -160px; top: -160px;
+  border-radius: 50%; filter: blur(110px);
+  background: rgba(201, 164, 92, .16);
+}
+.summit .container { position: relative; z-index: 1; }
+.summit__intro {
+  max-width: 70ch; margin-bottom: 2.8rem;
+  font-size: 1.05rem; color: rgba(250, 247, 242, .8);
+}
+.summit__intro strong { color: var(--gold-soft); font-weight: 500; }
+.summit__grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
+  margin-bottom: 3rem;
+}
+.summit__idea {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.6rem 1.7rem;
+  background: rgba(250, 247, 242, .045);
+  border: 1px solid rgba(185, 167, 230, .22);
+  border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+.summit__idea:hover { transform: translateY(-5px); border-color: rgba(201, 164, 92, .5); background: rgba(250, 247, 242, .08); }
+.summit__idea span {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1.5rem; color: var(--gold); line-height: 1;
+}
+.summit__idea p { font-size: .98rem; color: rgba(250, 247, 242, .85); line-height: 1.55; }
+.summit__quote {
+  position: relative;
+  max-width: 46ch; margin: 0 auto; text-align: center;
+  font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(1.3rem, 2.8vw, 1.9rem); line-height: 1.4;
+  color: rgba(250, 247, 242, .95);
+  padding-top: 1.6rem;
+}
+.summit__quote::before {
+  content: ""; display: block; width: 60px; height: 1px;
+  background: var(--gold); margin: 0 auto 1.6rem;
+}
+.summit__quote em { font-style: italic; color: var(--gold-soft); }
+
+/* ── Servicios para instituciones ───────────────────────── */
+.services__lead {
+  max-width: 64ch; margin: -2rem 0 2.8rem;
+  font-size: 1.05rem; color: var(--text-soft);
+}
+.services__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem;
+}
+.service-card {
+  padding: 1.7rem 1.6rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(109, 79, 161, .1);
+  border-left: 3px solid var(--gold);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-left-color: var(--plum);
+  box-shadow: 0 24px 46px -24px rgba(46, 28, 80, .35);
+}
+.service-card h3 { font-weight: 500; font-size: 1.04rem; color: var(--ink); margin-bottom: .45rem; line-height: 1.3; }
+.service-card p { font-size: .9rem; color: var(--text-soft); line-height: 1.55; }
+.services__cta { margin-top: 2.6rem; text-align: center; }
+
+/* ── Modelo comunitario / Caracterización ───────────────── */
+.model { background: linear-gradient(180deg, var(--cream), var(--lavender-soft) 130%); }
+.model__lead {
+  max-width: 66ch; margin: -2rem 0 2.8rem;
+  font-size: 1.05rem; color: var(--text-soft);
+}
+.model__grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
+}
+.model-card {
+  position: relative;
+  padding: 2rem 1.9rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(109, 79, 161, .12);
+  box-shadow: 0 14px 40px -24px rgba(46, 28, 80, .22);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.model-card:hover { transform: translateY(-6px); box-shadow: 0 26px 50px -22px rgba(46, 28, 80, .35); }
+.model-card--wide { grid-column: 1 / -1; }
+.model-card h3 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 1.25rem; color: var(--plum); margin-bottom: .6rem;
+}
+.model-card p { font-size: .95rem; color: var(--text-soft); line-height: 1.6; }
+
+/* ── Biblioteca Carlos E. Restrepo ──────────────────────── */
+.library__grid {
+  display: grid; grid-template-columns: 1.25fr .75fr;
+  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
+}
+.library__intro .section__title { margin-bottom: 1.4rem; }
+.library__text { color: var(--text-soft); font-size: 1.02rem; margin-bottom: 1rem; max-width: 60ch; }
+.library__highlight {
+  padding: 2.2rem 2rem;
+  background: linear-gradient(165deg, var(--lavender-soft), var(--rose));
+  border-radius: var(--radius);
+  border: 1px solid rgba(109, 79, 161, .14);
+}
+.library__highlight-eyebrow {
+  font-size: .76rem; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--plum); margin-bottom: .6rem;
+}
+.library__highlight h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.4rem; color: var(--ink); margin-bottom: .8rem; line-height: 1.25;
+}
+.library__highlight p { font-size: .96rem; color: var(--text-soft); line-height: 1.6; }
+
+/* ── Incidencia pública e instituciones ─────────────────── */
+.institutions { background: linear-gradient(180deg, var(--cream), var(--rose) 130%); }
+.institutions__lead { max-width: 68ch; margin: -2rem 0 2.4rem; font-size: 1.05rem; color: var(--text-soft); }
+.institutions__grid {
+  list-style: none;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem;
+  margin-bottom: 2.6rem;
+}
+.institutions__grid li {
+  padding: 1.1rem 1.3rem;
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid rgba(109, 79, 161, .12);
+  font-size: .95rem; font-weight: 500; color: var(--ink);
+  display: flex; align-items: center; gap: .7rem;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.institutions__grid li::before {
+  content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+}
+.institutions__grid li:hover { transform: translateX(4px); border-color: rgba(201, 164, 92, .5); }
+.institutions__feature {
+  padding: 2rem 2.1rem;
+  background: linear-gradient(135deg, var(--ink), var(--ink-soft));
+  border-radius: var(--radius);
+  border: 1px solid rgba(185, 167, 230, .2);
+  color: var(--cream);
+}
+.institutions__feature-eyebrow {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1.05rem; color: var(--gold-soft); margin-bottom: .7rem;
+}
+.institutions__feature p { font-size: .96rem; color: rgba(250, 247, 242, .82); line-height: 1.65; }
 
 /* ── Áreas de experiencia ───────────────────────────────── */
 .areas__grid {
@@ -621,22 +784,25 @@ img { max-width: 100%; display: block; }
   .hero__inner > * { min-width: 0; }
   .hero__eyebrow, .hero__actions { justify-content: center; }
   .hero__figure { order: -1; width: min(320px, 78vw); margin-top: 1.5rem; }
-  .hero__badge { right: 4px; bottom: -8px; width: 152px; padding: .8rem 1rem; }
+  .hero__badge { right: 4px; bottom: -8px; width: 162px; padding: .8rem 1rem; }
   .impact__grid { grid-template-columns: repeat(2, 1fr); }
   .areas__grid { grid-template-columns: repeat(2, 1fr); }
   .honors__grid { grid-template-columns: repeat(2, 1fr); }
   .education__grid { grid-template-columns: 1fr; }
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+  .institutions__grid { grid-template-columns: repeat(2, 1fr); }
+  .library__grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 700px) {
   .nav__links {
     position: fixed; inset: 0; z-index: 90;
-    flex-direction: column; justify-content: center; gap: 2.2rem;
+    flex-direction: column; justify-content: center; gap: 2rem;
     background: rgba(28, 20, 41, .97); backdrop-filter: blur(16px);
     transform: translateY(-100%); opacity: 0; pointer-events: none;
     transition: transform .5s cubic-bezier(.22, .8, .3, 1), opacity .4s ease;
   }
-  .nav__links a { font-size: 1.25rem; }
+  .nav__links a { font-size: 1.2rem; }
   .nav__links.is-open { transform: none; opacity: 1; pointer-events: auto; }
 
   .nav__toggle {
@@ -655,5 +821,7 @@ img { max-width: 100%; display: block; }
   .impact__grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
   .impact__card { padding: 1.6rem 1.3rem 1.4rem; }
   .areas__grid, .honors__grid { grid-template-columns: 1fr; }
+  .summit__grid, .services__grid, .model__grid, .institutions__grid { grid-template-columns: 1fr; }
+  .services__lead, .model__lead, .institutions__lead { margin-top: -1rem; }
   .footer__inner { justify-content: center; text-align: center; }
 }
