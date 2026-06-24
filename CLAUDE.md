@@ -1,120 +1,132 @@
 # CLAUDE.md
 
-Guidance for AI assistants working in this repository.
+Guía para asistentes de IA que trabajen en este repositorio.
 
-## What this is
+## Qué es esto
 
-A single-page **personal-brand landing page / web CV** for **Alexandra Ortega** —
-psychologist, ontological coach, speaker and trainer in mental health, founder of
-the *Gimnasio Emocional Mentes Brillantes (GEMB)* technique, and project director
-at the *Fundación Social Mentes Brillantes*.
+Una página de aterrizaje de marca personal / **hoja de vida web** de una sola
+página para **Alexandra Ortega** — psicóloga, coach ontológica, conferencista y
+formadora en salud mental, fundadora de la técnica *Gimnasio Emocional Mentes
+Brillantes (GEMB)* y directora de proyectos de la *Fundación Social Mentes
+Brillantes*.
 
-It is a **100% static site**: plain HTML5, hand-written CSS3, and one vanilla
-JavaScript file. There is **no build step, no framework, no package manager, and
-no dependencies to install**. All content is in **Spanish (`lang="es"`)** and the
-site targets a Colombian audience.
+Es un **sitio 100 % estático**: HTML5 puro, CSS3 escrito a mano y un único
+archivo de JavaScript vanilla. **No hay paso de build, ni framework, ni gestor de
+paquetes, ni dependencias que instalar.** Todo el contenido está en **español
+(`lang="es"`)** y el sitio está dirigido a un público colombiano.
 
-## Files
+## Archivos
 
-| File | Purpose |
-|------|---------|
-| `index.html` | The entire page — every section lives here. ~440 lines. |
-| `styles.css` | Complete design system and all responsive styles. ~1000 lines. |
-| `script.js` | All interactivity: scroll-aware nav, mobile menu, scroll-reveal, animated counters, dynamic year. One IIFE. |
-| `assets/alexandra-sq.jpg` | Square hero photo (referenced by the page + Open Graph image). |
-| `assets/alexandra-wide.jpg` | Alternate horizontal photo (currently unused in markup). |
-| `README.md` | Human-facing project description (Spanish). |
-| `.gitignore` | Ignores OS/editor cruft, `node_modules/`, `dist/`, `.vercel`. |
+| Archivo | Propósito |
+|---------|-----------|
+| `index.html` | La página completa — todas las secciones viven aquí. ~440 líneas. |
+| `styles.css` | Sistema de diseño completo y todos los estilos responsive. ~1000 líneas. |
+| `script.js` | Toda la interactividad: nav según scroll, menú móvil, aparición al hacer scroll, contadores animados, año dinámico. Una sola IIFE. |
+| `assets/alexandra-sq.jpg` | Foto cuadrada del hero (la usa la página + la imagen de Open Graph). |
+| `assets/alexandra-wide.jpg` | Foto horizontal alternativa (actualmente sin usar en el marcado). |
+| `README.md` | Descripción del proyecto orientada a personas (en español). |
+| `.gitignore` | Ignora archivos del SO/editor, `node_modules/`, `dist/`, `.vercel`. |
 
-There are no other source directories.
+No hay otros directorios de código fuente.
 
-## Running locally
+## Ejecutar localmente
 
-No install needed. Either:
+No requiere instalación. Cualquiera de estas opciones:
 
 ```bash
-# Just open it
-open index.html          # or double-click in a file browser
+# Solo ábrelo
+open index.html          # o doble clic en un explorador de archivos
 
-# Or serve statically (better for testing relative paths / OG tags)
+# O sírvelo de forma estática (mejor para probar rutas relativas / etiquetas OG)
 npx serve .
 ```
 
-There are **no tests, no linters, and no CI build** configured. "Verifying a
-change" means opening the page in a browser and visually checking the affected
-section at both desktop and mobile widths.
+**No hay pruebas, ni linters, ni build en CI** configurados. "Verificar un
+cambio" significa abrir la página en un navegador y revisar visualmente la
+sección afectada tanto en ancho de escritorio como móvil.
 
-## Deployment
+## Despliegue
 
-The site is deployed on **Vercel** (note the `.vercel` entry in `.gitignore`).
-Pushing to the default branch triggers a Vercel deploy. Since there is no build
-command, Vercel serves the files as-is.
+El sitio se despliega en **Vercel** (nótese la entrada `.vercel` en
+`.gitignore`). Hacer push a la rama por defecto dispara un despliegue de Vercel.
+Como no hay comando de build, Vercel sirve los archivos tal cual.
 
-## Architecture & conventions
+## Arquitectura y convenciones
 
 ### HTML (`index.html`)
-- The page is one `<header>` nav + one `<main>` containing a sequence of
-  `<section>` blocks, then a `<footer>`. Each section is delimited by a banner
-  comment in box-drawing characters, e.g.
-  `<!-- ╭─────────── HERO ───────────╮ -->`. Keep this style when adding sections.
-- **Section `id`s double as nav anchors.** Current order:
+- La página es un `<header>` de navegación + un `<main>` que contiene una
+  secuencia de bloques `<section>`, y luego un `<footer>`. Cada sección se
+  delimita con un comentario tipo banner en caracteres de caja, p. ej.
+  `<!-- ╭─────────── HERO ───────────╮ -->`. Mantén este estilo al añadir
+  secciones.
+- **Los `id` de sección sirven también como anclas de navegación.** Orden actual:
   `inicio` (hero) → `perfil` → `trayectoria` → `cumbre` → `servicios` →
   `biblioteca` → `incidencia` → `experiencia` → `reconocimientos` →
-  `formacion` → `contacto`. The nav (`#navLinks`) links a curated subset of
-  these; if you add a section meant to be navigable, add a matching `<a href="#...">`.
-- **Accessibility is intentional**: `aria-label`, `aria-hidden` on decorative
-  elements, `aria-expanded` on the menu toggle, descriptive `alt` text. Preserve
-  these when editing. Decorative glows/rings/SVGs are always `aria-hidden="true"`.
-- SEO/meta lives in `<head>`: `title`, `description`, `author`, and Open Graph
-  tags. Update these when the headline messaging or photo changes.
+  `formacion` → `contacto`. La navegación (`#navLinks`) enlaza un subconjunto
+  curado de estos; si añades una sección que deba ser navegable, agrega también
+  el `<a href="#...">` correspondiente.
+- **La accesibilidad es intencional**: `aria-label`, `aria-hidden` en elementos
+  decorativos, `aria-expanded` en el botón del menú, texto `alt` descriptivo.
+  Conserva todo esto al editar. Los brillos/anillos/SVG decorativos siempre
+  llevan `aria-hidden="true"`.
+- El SEO/meta vive en `<head>`: `title`, `description`, `author` y etiquetas Open
+  Graph. Actualízalos cuando cambie el mensaje principal o la foto.
 
 ### CSS (`styles.css`)
-- **Design tokens are CSS custom properties in `:root`** (top of file): brand
-  colors (`--ink`, `--plum`, `--lavender`, `--gold`, `--cream`, …), fonts
-  (`--font-display` = Fraunces for headings, `--font-body` = Outfit for text),
-  plus `--radius`, `--shadow`, `--transition`. **Change the palette here, not
-  inline.** Use these tokens instead of hard-coded values in new rules.
-- **Naming is BEM-ish**: `block`, `block__element`, `block--modifier`
-  (e.g. `hero__name`, `btn--gold`, `section__title--light`). Match the existing
-  block name when extending a component.
-- The file is organized into clearly commented sections (`/* ── Hero ── */`,
-  `/* ── Servicios ── */`, …) that mirror the HTML sections, ending with a single
-  `/* ── Responsive ── */` block of media queries. **Put new component styles in
-  the matching section and keep responsive overrides in the responsive block.**
-- Layout uses `clamp()` for fluid type/spacing and CSS grid/flex. Dark sections
-  (Cumbre, Reconocimientos) use light text modifiers (`--light`).
+- **Los tokens de diseño son propiedades personalizadas de CSS en `:root`**
+  (inicio del archivo): colores de marca (`--ink`, `--plum`, `--lavender`,
+  `--gold`, `--cream`, …), fuentes (`--font-display` = Fraunces para títulos,
+  `--font-body` = Outfit para texto), más `--radius`, `--shadow`, `--transition`.
+  **Cambia la paleta aquí, no en línea.** Usa estos tokens en lugar de valores
+  fijos en reglas nuevas.
+- **El nombrado es estilo BEM**: `block`, `block__element`, `block--modifier`
+  (p. ej. `hero__name`, `btn--gold`, `section__title--light`). Reutiliza el nombre
+  del bloque existente al extender un componente.
+- El archivo está organizado en secciones claramente comentadas
+  (`/* ── Hero ── */`, `/* ── Servicios ── */`, …) que reflejan las secciones del
+  HTML, y termina con un único bloque `/* ── Responsive ── */` de media queries.
+  **Coloca los estilos de componentes nuevos en la sección correspondiente y
+  mantén los ajustes responsive en el bloque responsive.**
+- El layout usa `clamp()` para tipografía/espaciado fluidos y grid/flex de CSS.
+  Las secciones oscuras (Cumbre, Reconocimientos) usan modificadores de texto
+  claro (`--light`).
 
 ### JavaScript (`script.js`)
-- A single IIFE in `"use strict"` mode, organized into four numbered concerns:
-  (1) nav scroll state + mobile menu, (2) `IntersectionObserver` scroll-reveal,
-  (3) animated counters, (4) dynamic footer year.
-- **`prefers-reduced-motion` is respected** and there are graceful fallbacks when
-  `IntersectionObserver` is unavailable — keep both when touching animations.
-- **The `.reveal` class is the scroll-in animation hook.** Any element with
-  `reveal` fades/slides in when scrolled into view (with a small per-sibling
-  stagger). Add `reveal` to new content that should animate in. CSS for it lives
-  under `/* ── Animaciones al hacer scroll ── */`.
-- **Animated counters** use `<span class="counter" data-target="N">`. The visible
-  starting text should be `0` (or the target for year-like values that shouldn't
-  count up from zero — see the `2016`/`2025` cards in the Impacto section).
-- No external JS libraries; keep it dependency-free and vanilla.
+- Una sola IIFE en modo `"use strict"`, organizada en cuatro temas numerados:
+  (1) estado de la nav según scroll + menú móvil, (2) aparición al hacer scroll
+  con `IntersectionObserver`, (3) contadores animados, (4) año dinámico del
+  footer.
+- **Se respeta `prefers-reduced-motion`** y hay alternativas elegantes cuando
+  `IntersectionObserver` no está disponible — conserva ambas al tocar las
+  animaciones.
+- **La clase `.reveal` es el gancho de animación de aparición al hacer scroll.**
+  Cualquier elemento con `reveal` aparece con un fundido/desplazamiento al entrar
+  en pantalla (con un pequeño escalonado entre hermanos). Añade `reveal` al
+  contenido nuevo que deba animarse. Su CSS vive bajo
+  `/* ── Animaciones al hacer scroll ── */`.
+- **Los contadores animados** usan `<span class="counter" data-target="N">`. El
+  texto inicial visible debe ser `0` (o el valor objetivo para valores tipo año
+  que no deban contar desde cero — ver las tarjetas `2016`/`2025` en la sección
+  Impacto).
+- No hay librerías JS externas; mantenlo sin dependencias y vanilla.
 
-## Editing guidance
+## Guía de edición
 
-- **Content/copy lives in `index.html`.** It's in Spanish — preserve tone
-  (warm, professional, mental-health/community focus) and accents.
-- When adding a card to a grid (services, areas, honors, model, timeline),
-  copy an existing sibling `<article>`/`<li>`, keep its classes incl. `reveal`,
-  and the grid handles layout automatically.
-- Contact details are real and appear in multiple places (footer NIT, `mailto:`,
-  `tel:`, Instagram/Facebook links). Update **all** occurrences together.
-- Keep the page a single self-contained static site. **Do not introduce a build
-  system, framework, or npm dependencies** unless the user explicitly asks —
-  doing so would change the entire deployment model.
+- **El contenido/copy vive en `index.html`.** Está en español — conserva el tono
+  (cálido, profesional, enfocado en salud mental y comunidad) y los acentos.
+- Al añadir una tarjeta a una grilla (servicios, áreas, reconocimientos, modelo,
+  trayectoria), copia un hermano `<article>`/`<li>` existente, mantén sus clases
+  incluyendo `reveal`, y la grilla se encarga del layout automáticamente.
+- Los datos de contacto son reales y aparecen en varios lugares (NIT del footer,
+  `mailto:`, `tel:`, enlaces de Instagram/Facebook). Actualiza **todas** las
+  apariciones a la vez.
+- Mantén la página como un sitio estático autocontenido. **No introduzcas un
+  sistema de build, framework ni dependencias de npm** salvo que el usuario lo
+  pida explícitamente — hacerlo cambiaría todo el modelo de despliegue.
 
-## Git workflow
+## Flujo de trabajo con Git
 
-- Work on the designated feature branch; commit with clear messages and push with
-  `git push -u origin <branch>`. Do **not** open a pull request unless explicitly
-  asked.
-- Default branch is `main`.
+- Trabaja en la rama de funcionalidad designada; haz commits con mensajes claros
+  y push con `git push -u origin <rama>`. **No** abras un pull request salvo que
+  se pida explícitamente.
+- La rama por defecto es `main`.
