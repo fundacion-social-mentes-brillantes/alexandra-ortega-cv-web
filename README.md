@@ -47,11 +47,15 @@ En el cuadro de impresión: **Destino** Guardar como PDF · **Tamaño** Carta ·
 4. **Ningún aval de la OMS.** La hoja de vida original decía que el programa de 12 pasos está «reconocido por la OMS»: es falso y se retiró. Se menciona la técnica sin atribuirle aval.
 5. **El nombre visible de la organización es «Gimnasio Emocional Mentes Brillantes»**, no «Fundación Social». El NIT solo en la forma de contratación y el pie.
 
-## Pendiente antes de publicar
+## Datos que faltan
 
-Abra `?revision=1` para verlos todos. Los dos críticos:
+Abra `?revision=1` para verlos todos, marcados en amarillo sobre el propio documento.
 
-- **Permiso escrito de Kevin Jiménez** (y de su acudiente si el proceso empezó siendo menor) para publicar su nombre como caso de éxito.
-- **Tarjeta profesional de psicología** (Ley 1090 de 2006): es lo primero que revisa un área jurídica.
+**Publicado el 2026-08-05** con la autorización de Kevin Jiménez confirmada, y sin esperar la tarjeta profesional, por decisión expresa de Sebastián.
 
-La cédula **52.377.161 está publicada** en el documento por decisión expresa de Sebastián. Queda en una URL pública e indexable.
+Sigue pendiente y conviene resolverlo:
+
+- **Tarjeta profesional de psicología** (Ley 1090 de 2006). Es lo primero que revisa un área jurídica en una contratación pública. No hay ninguna casilla vacía en el documento —una casilla en blanco ahí hunde la hoja de vida— pero cuando llegue el número entra como una fila más de `F-01`.
+- Ciudad de residencia · universidad y año de grado de Psicología · institución y año del coach ontológico · año de la Gala de Control Social · títulos de los tres libros · años y objeto de Fundación Resolver · dos referencias · años y torneo exacto del caso de Kevin Jiménez · los demás casos de éxito.
+
+La cédula **52.377.161 está publicada** en el documento por decisión expresa de Sebastián. Queda en una URL pública e indexable por buscadores.
