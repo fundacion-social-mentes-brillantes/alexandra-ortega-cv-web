@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alexandra Ortega — Tallerista, Conferencista y Formadora en Salud Mental | Gimnasio Emocional Mentes Brillantes</title>
-  <meta name="description" content="Alexandra Ortega: psicóloga, coach ontológica y fundadora de la técnica Gimnasio Emocional Mentes Brillantes (GEMB). Tallerista, conferencista y formadora en salud mental, inteligencia emocional, enfoque de género y construcción de paz territorial. Trayectoria continua desde 2016.">
-  <meta name="author" content="Alexandra Ortega">
-  <meta property="og:title" content="Alexandra Ortega — Las emociones también se entrenan">
-  <meta property="og:description" content="Tallerista, conferencista y formadora en salud mental. Fundadora de Gimnasio Emocional Mentes Brillantes. Trayectoria continua desde 2016.">
-  <meta property="og:type" content="website">
+  <!-- El <title> es el nombre que Chrome sugiere al guardar el PDF. -->
+  <title>Hoja de vida · Alexandra Ortega · Coach deportivo mental</title>
+  <meta name="description" content="Alexandra Ortega — psicóloga, coach ontológica y fundadora de la técnica Gimnasio Emocional Mentes Brillantes. Entrenamiento mental para deportistas, equipos, escuelas y territorios. El poder de entrenar la mente.">
+  <meta name="author" content="Yudy Alexandra Ortega Salamanca">
+  <meta property="og:title" content="Alexandra Ortega — El poder de entrenar la mente">
+  <meta property="og:description" content="Coach deportivo mental. Psicóloga y fundadora de Gimnasio Emocional Mentes Brillantes. Entrenamiento mental para deportistas, equipos, escuelas y comunidades. Trayectoria continua desde 2016.">
+  <meta property="og:type" content="profile">
   <meta property="og:image" content="assets/alexandra-sq.jpg">
+  <meta name="theme-color" content="#221833">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -26,11 +28,11 @@
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
         <a href="#perfil">Perfil</a>
-        <a href="#trayectoria">Trayectoria</a>
-        <a href="#cumbre">Cumbre 2025</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#biblioteca">Biblioteca</a>
-        <a href="#contacto" class="nav__cta">Contactar</a>
+        <a href="#casos">Casos</a>
+        <a href="#metodo">Método</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#anexo">Servicios</a>
+        <a href="#descargar" class="nav__cta">Descargar PDF</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span>
@@ -38,375 +40,663 @@
     </div>
   </header>
 
+  <!-- Riel de progreso del documento (solo pantalla) -->
+  <div class="riel" id="riel" aria-hidden="true"><span class="riel__barra" id="rielBarra"></span></div>
+
   <main>
 
-    <!-- ╭─────────── HERO ───────────╮ -->
+    <!-- ╭─────────── PORTADA ───────────╮ -->
     <section class="hero" id="inicio">
       <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
       <div class="hero__inner">
         <div class="hero__content">
-          <p class="hero__eyebrow"><span class="line"></span>Fundación Social · Gimnasio Emocional Mentes Brillantes</p>
+          <p class="hero__eyebrow"><span class="line"></span>Hoja de vida · Coach deportivo mental</p>
           <h1 class="hero__name">
             <span class="hero__name-script">Alexandra</span>
             <span class="hero__name-caps">Ortega</span>
           </h1>
-          <p class="hero__claim">Las emociones <em>también se entrenan.</em></p>
-          <p class="hero__roles">Tallerista · Conferencista · Formadora en salud mental · Psicóloga · Coach Ontológica</p>
+          <p class="hero__claim">El poder de <em>entrenar la mente.</em></p>
+          <p class="hero__roles">Psicóloga · Coach Ontológica · Entrenadora Élite · Fundadora de la técnica Gimnasio Emocional Mentes Brillantes</p>
           <div class="hero__actions">
-            <a href="#servicios" class="btn btn--gold">Servicios para instituciones</a>
-            <a href="#contacto" class="btn btn--ghost">Contactar</a>
+            <a href="#descargar" class="btn btn--gold">Descargar hoja de vida</a>
+            <a href="#casos" class="btn btn--ghost">Ver casos de éxito</a>
           </div>
         </div>
         <figure class="hero__figure">
           <div class="hero__ring" aria-hidden="true"></div>
-          <img src="assets/alexandra-sq.jpg" alt="Alexandra Ortega sonriendo, señalando su mente: las emociones se entrenan" class="hero__photo" width="800" height="800">
+          <img src="assets/alexandra-sq.jpg" alt="Retrato de Alexandra Ortega" class="hero__photo" width="800" height="800">
           <figcaption class="hero__badge">
             <strong>Desde 2016</strong>
-            <span>trayectoria continua en salud mental y procesos comunitarios</span>
+            <span>entrenando mentes en comunidades, escuelas y territorios</span>
           </figcaption>
         </figure>
       </div>
-      <a href="#perfil" class="hero__scroll" aria-label="Bajar a la siguiente sección">
+      <a href="#identificacion" class="hero__scroll" aria-label="Bajar a la siguiente sección">
         <span class="hero__scroll-dot"></span>
       </a>
     </section>
 
-    <!-- ╭─────────── PERFIL ───────────╮ -->
-    <section class="voice section" id="perfil">
+    <!-- ╭─────────── F-01 · IDENTIFICACIÓN ───────────╮ -->
+    <section class="section folio-seccion ident" id="identificacion">
+      <div class="container">
+        <p class="section__eyebrow"><span class="folio"></span>Identificación y contacto</p>
+
+        <!-- Cabecera formal: solo se ve en el PDF -->
+        <div class="print-cabecera" aria-hidden="true">
+          <img src="assets/alexandra-sq.jpg" alt="" class="print-cabecera__foto" width="800" height="800">
+          <div class="print-cabecera__texto">
+            <p class="print-cabecera__nombre">Yudy Alexandra Ortega Salamanca</p>
+            <p class="print-cabecera__roles">Psicóloga · Coach Ontológica · Entrenadora Élite transformacional · Coach deportivo mental</p>
+            <p class="print-cabecera__lema">Fundadora de la técnica Gimnasio Emocional Mentes Brillantes · «El poder de entrenar la mente»</p>
+          </div>
+        </div>
+
+        <p class="ident__para" id="identPara" hidden></p>
+
+        <dl class="ident__datos">
+          <div class="ident__fila">
+            <dt>Nombre completo</dt>
+            <dd>Yudy Alexandra Ortega Salamanca <span class="ident__nota">(nombre profesional: Alexandra Ortega)</span></dd>
+          </div>
+          <div class="ident__fila">
+            <dt>Documento de identidad</dt>
+            <dd>C.C. 52.377.161</dd>
+          </div>
+          <div class="ident__fila">
+            <dt>Profesión</dt>
+            <dd>Psicóloga · Coach Ontológica · Entrenadora Élite certificada</dd>
+          </div>
+          <div class="ident__fila">
+            <dt>Correo</dt>
+            <dd><a href="mailto:yaosproactiva@hotmail.com">yaosproactiva@hotmail.com</a></dd>
+          </div>
+          <div class="ident__fila">
+            <dt>Celular</dt>
+            <dd><a href="tel:+573208413878">+57 320 841 3878</a></dd>
+          </div>
+          <div class="ident__fila">
+            <dt>Instagram</dt>
+            <dd><a href="https://www.instagram.com/gimnasioemocional_mb" target="_blank" rel="noopener">@gimnasioemocional_mb</a></dd>
+          </div>
+          <div class="ident__fila">
+            <dt>Base comunitaria</dt>
+            <dd>Biblioteca Pública Carlos E. Restrepo · Bogotá, y modalidad virtual a todo el país</dd>
+          </div>
+          <div class="ident__fila ident__fila--ancha">
+            <dt>Forma de contratación</dt>
+            <dd>Persona natural, o a través de la ESAL Gimnasio Emocional Mentes Brillantes · NIT 901.002.849-3</dd>
+          </div>
+          <span class="pendiente" data-pide="Ciudad de residencia exacta"></span>
+          <span class="pendiente" data-pide="Tarjeta profesional de psicología: número y vigencia (Ley 1090 de 2006)"></span>
+          <div class="ident__fila ident__fila--ancha">
+            <dt>Versión en línea verificable</dt>
+            <dd><a class="url-publica" href="https://alexandra-ortega-cv-web.vercel.app">alexandra-ortega-cv-web.vercel.app</a></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ╭─────────── F-02 · PERFIL ───────────╮ -->
+    <section class="voice section folio-seccion" id="perfil">
       <div class="container container--narrow">
-        <p class="section__eyebrow reveal">Perfil profesional</p>
-        <h2 class="voice__statement reveal">Acompaño a personas, comunidades e instituciones a <em>habitar sus emociones</em>: a liderar con consciencia, a comunicar con empatía y a convertir el cuidado de la salud mental en un proyecto de vida y de territorio.</h2>
-        <p class="voice__text reveal">Psicóloga, coach ontológica y fundadora de la técnica <strong>Gimnasio Emocional Mentes Brillantes (GEMB)</strong>, con trayectoria continua desde 2016 en formación en inteligencia emocional, autocuidado, desarrollo personal, prevención en salud mental, liderazgo consciente y enfoque de género. Diseña y facilita procesos vivenciales para bibliotecas, entidades públicas, organizaciones comunitarias, colegios, empresas y espacios culturales.</p>
-        <p class="voice__text reveal">Ofrece sus servicios como <strong>tallerista, conferencista y formadora en salud mental</strong> a la Biblioteca Pública Carlos E. Restrepo y a otras bibliotecas e instituciones que buscan fortalecer el bienestar emocional de su comunidad.</p>
+        <p class="section__eyebrow"><span class="folio"></span>Perfil profesional</p>
+        <h2 class="voice__statement reveal">Así como el cuerpo se entrena para competir, <em>la mente también se entrena</em>: entreno la cabeza del deportista, del equipo y de la comunidad que lo sostiene.</h2>
+        <p class="voice__text reveal">Psicóloga, coach ontológica y <strong>Entrenadora Élite certificada</strong>, fundadora de la técnica <strong>Gimnasio Emocional Mentes Brillantes (GEMB)</strong>, con trayectoria continua desde 2016 en educación emocional, psicoeducación y prevención en salud mental. Aplico esa metodología al rendimiento deportivo: manejo de la presión, tolerancia a la frustración, foco, disciplina, carácter, cohesión de equipo y proyecto de vida del deportista.</p>
+        <p class="voice__text reveal">Trabajo con deportistas y equipos, pero también con quienes los rodean —familias, entrenadores, docentes y líderes de barrio—, porque el talento se sostiene o se pierde en el entorno. La metodología nació y se probó en territorio, con población de barrios populares, y por eso funciona igual en una escuela de fútbol de localidad que en un proceso de selección.</p>
         <div class="voice__pillars reveal">
-          <span>Inteligencia emocional</span>
-          <span>Prevención en salud mental</span>
-          <span>Liderazgo consciente</span>
-          <span>Enfoque de género</span>
-          <span>Duelo y resignificación</span>
-          <span>Construcción de paz</span>
+          <span>Manejo de la presión</span>
+          <span>Foco y disciplina</span>
+          <span>Construcción de carácter</span>
+          <span>Cohesión de equipo</span>
+          <span>Duelo de la derrota y la lesión</span>
+          <span>Proyecto de vida del deportista</span>
         </div>
       </div>
     </section>
 
-    <!-- ╭─────────── IMPACTO EN NÚMEROS ───────────╮ -->
-    <section class="impact section" aria-label="Impacto en cifras">
+    <!-- ╭─────────── SÍNTESIS EN CIFRAS ───────────╮ -->
+    <section class="impact section" aria-label="Síntesis en cifras">
       <div class="container">
         <div class="impact__grid">
           <article class="impact__card reveal">
-            <p class="impact__number"><span class="counter" data-target="2016">2016</span></p>
-            <p class="impact__label">Trayectoria continua liderando procesos en salud mental y comunidad</p>
+            <p class="impact__number">2016</p>
+            <p class="impact__label">Trayectoria continua entrenando mentes en comunidad y territorio</p>
           </article>
           <article class="impact__card reveal">
-            <p class="impact__number">+<span class="counter" data-target="176">0</span></p>
-            <p class="impact__label">Mujeres formadas como replicadoras de bienestar con la técnica GEMB</p>
+            <p class="impact__number">+176</p>
+            <p class="impact__label">Personas formadas como replicadoras del método, no solo como asistentes a un taller</p>
           </article>
           <article class="impact__card reveal">
-            <p class="impact__number">+<span class="counter" data-target="7">0</span></p>
-            <p class="impact__label">Años acompañando procesos de duelo humano y de mascotas</p>
+            <p class="impact__number">+7</p>
+            <p class="impact__label">Años acompañando duelo y pérdida — la base para sostener una derrota o una lesión</p>
           </article>
           <article class="impact__card reveal">
-            <p class="impact__number"><span class="counter" data-target="2025">2025</span></p>
+            <p class="impact__number">2025</p>
             <p class="impact__label">Ponente en la Cumbre Global de Salud Mental por la metodología GEMB</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ╭─────────── LÍNEA DE TIEMPO ───────────╮ -->
-    <section class="timeline section" id="trayectoria">
+    <!-- ╭─────────── HERRAMIENTAS (solo pantalla) ───────────╮ -->
+    <section class="utiles section" id="descargar">
       <div class="container">
-        <p class="section__eyebrow reveal">Trayectoria · desde 2016 hasta la fecha</p>
-        <h2 class="section__title reveal">Un camino de <em>liderazgo, salud mental y paz territorial</em></h2>
-        <ol class="timeline__list">
-          <li class="timeline__item reveal">
-            <span class="timeline__year">2016</span>
-            <div class="timeline__body">
-              <h3>Inicio del liderazgo social y terapéutico</h3>
-              <p>Comienza procesos de formación en inteligencia emocional y acompañamiento comunitario, con participación sostenida en el COLMYEG de Antonio Nariño y en presupuestos participativos del territorio.</p>
-            </div>
-          </li>
-          <li class="timeline__item reveal">
-            <span class="timeline__year">2019</span>
-            <div class="timeline__body">
-              <h3>Articulación con la Biblioteca Carlos E. Restrepo</h3>
-              <p>Inicia un trabajo articulado con la Biblioteca Pública Carlos E. Restrepo, acompañando a sus usuarios en procesos de lectura, estudio y comprensión de la mente, las emociones y la conducta humana.</p>
-            </div>
-          </li>
-          <li class="timeline__item reveal">
-            <span class="timeline__year">2023</span>
-            <div class="timeline__body">
-              <h3>Reconocimiento como lideresa incidente</h3>
-              <p>Diplomado en Formulación de Proyectos con Enfoque de Género (UNAD) y reconocimiento por su liderazgo social y su participación en los derechos de las mujeres.</p>
-            </div>
-          </li>
-          <li class="timeline__item reveal">
-            <span class="timeline__year">2024</span>
-            <div class="timeline__body">
-              <h3>Huertas Urbanas con Enfoque de Género</h3>
-              <p>Impulsa el proyecto 32766 desde presupuestos participativos, orientado al fortalecimiento emocional, económico, ambiental y cultural de mujeres y comunidad en el territorio.</p>
-            </div>
-          </li>
-          <li class="timeline__item reveal">
-            <span class="timeline__year">2025</span>
-            <div class="timeline__body">
-              <h3>Ponente en la Cumbre Global de Salud Mental</h3>
-              <p>Invitada como ponente por la metodología Gimnasio Emocional Mentes Brillantes, presentada como movimiento pedagógico y terapéutico para la alfabetización emocional y la prevención en salud mental.</p>
-            </div>
-          </li>
-          <li class="timeline__item reveal">
-            <span class="timeline__year">2026</span>
-            <div class="timeline__body">
-              <h3>Círculo de Estado Abierto de Bogotá</h3>
-              <p>La Fundación Social GEMB es invitada a participar en este espacio de articulación con organizaciones, postulando su modelo de prevención y fortalecimiento de la salud mental como herramienta de construcción de paz territorial.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ╭─────────── CUMBRE GLOBAL DE SALUD MENTAL 2025 ───────────╮ -->
-    <section class="summit section" id="cumbre">
-      <div class="summit__glow" aria-hidden="true"></div>
-      <div class="container">
-        <p class="section__eyebrow section__eyebrow--light reveal">Hito destacado · Cumbre Global de Salud Mental 2025</p>
-        <h2 class="section__title section__title--light reveal">La salud mental como <em>lenguaje universal</em></h2>
-        <p class="summit__intro reveal">Alexandra Ortega fue invitada como ponente a la Cumbre Global de Salud Mental 2025 por la metodología <strong>Gimnasio Emocional Mentes Brillantes</strong>: un movimiento pedagógico y terapéutico que promueve la alfabetización emocional, el entrenamiento interior y la prevención en salud mental a través del diálogo horizontal, el acompañamiento grupal, la mentoría, la meditación, la educación emocional, el enfoque de género y la transformación comunitaria.</p>
-        <div class="summit__grid">
-          <article class="summit__idea reveal"><span>01</span><p>Vivimos con mucha información, pero poco autoconocimiento. La mente también necesita entrenamiento.</p></article>
-          <article class="summit__idea reveal"><span>02</span><p>GEMB fortalece músculos invisibles: paciencia, tolerancia, empatía, resiliencia y amor propio.</p></article>
-          <article class="summit__idea reveal"><span>03</span><p>La salud mental no es solo ausencia de ansiedad o depresión, sino el arte de vivir bien.</p></article>
-          <article class="summit__idea reveal"><span>04</span><p>Cada persona entrenada emocionalmente puede convertirse en un territorio de paz que transforma familias y comunidades.</p></article>
-        </div>
-        <blockquote class="summit__quote reveal">
-          «La verdadera seguridad no comienza en las calles, sino en las personas; no comienza en las instituciones, sino en las familias. Cuando una persona aprende a gestionar sus emociones, se convierte en un <em>territorio de paz</em> capaz de transformar su hogar y su comunidad.»
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- ╭─────────── SERVICIOS PARA INSTITUCIONES ───────────╮ -->
-    <section class="services section" id="servicios">
-      <div class="container">
-        <p class="section__eyebrow reveal">Servicios para bibliotecas e instituciones</p>
-        <h2 class="section__title reveal">Programas a la medida de <em>bibliotecas, colegios, entidades y empresas</em></h2>
-        <p class="services__lead reveal">Talleres, conferencias y procesos de formación diseñados para fortalecer el bienestar emocional de comunidades y equipos, disponibles para bibliotecas, colegios, fundaciones, entidades públicas y empresas.</p>
-        <div class="services__grid">
-          <article class="service-card reveal"><h3>Talleres de inteligencia emocional</h3><p>Procesos vivenciales para reconocer, comprender y entrenar las emociones.</p></article>
-          <article class="service-card reveal"><h3>Prevención en salud mental comunitaria</h3><p>Estrategias de cuidado colectivo y detección temprana del malestar emocional.</p></article>
-          <article class="service-card reveal"><h3>Duelo y resignificación de pérdidas</h3><p>Acompañamiento de pérdidas humanas y de mascotas hacia nuevos comienzos.</p></article>
-          <article class="service-card reveal"><h3>Comunicación asertiva y convivencia</h3><p>Herramientas para el diálogo, la convivencia y la resolución pacífica de conflictos.</p></article>
-          <article class="service-card reveal"><h3>Liderazgo femenino y enfoque de género</h3><p>Formación de lideresas y promoción de la equidad en el territorio.</p></article>
-          <article class="service-card reveal"><h3>Autocuidado para mujeres cuidadoras</h3><p>Espacios de descanso emocional y autocuidado para quienes cuidan a otros.</p></article>
-          <article class="service-card reveal"><h3>Formación de formadoras</h3><p>Estrategia para capacitar mujeres como multiplicadoras de bienestar y derechos.</p></article>
-          <article class="service-card reveal"><h3>Círculos de lectura emocional</h3><p>Lectura y diálogo sobre la mente, las emociones y el desarrollo humano.</p></article>
-          <article class="service-card reveal"><h3>Conferencias: personas como territorios de paz</h3><p>Charlas inspiradoras sobre salud mental, convivencia y paz sostenible.</p></article>
-          <article class="service-card reveal"><h3>Bienestar a través del arte y la cultura</h3><p>Procesos que integran arte, cultura y participación ciudadana al cuidado emocional.</p></article>
-        </div>
-        <div class="services__cta reveal">
-          <a href="#contacto" class="btn btn--gold btn--lg">Solicitar una propuesta</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ╭─────────── MODELO COMUNITARIO / CARACTERIZACIÓN 2026 ───────────╮ -->
-    <section class="model section">
-      <div class="container">
-        <p class="section__eyebrow reveal">Modelo comunitario validado en territorio · Caracterización técnica 2026</p>
-        <h2 class="section__title reveal">Una metodología con <em>respaldo y resultados</em></h2>
-        <p class="model__lead reveal">En 2026, GEMB fue presentado en el marco de la caracterización técnica de organizaciones locales dirigida a la Alcaldía Local de Antonio Nariño — Mesa Local Más Bienestar, con enfoque en prevención en salud mental comunitaria y articulación territorial.</p>
-        <div class="model__grid">
-          <article class="model-card reveal">
-            <h3>Efectividad</h3>
-            <p>Resultados medidos por participación, permanencia, testimonios de transformación y evidencias de cambio personal, familiar y social. Cuenta con una red viva de personas entrenadas para mitigar el ruido emocional y prevenir violencias.</p>
-          </article>
-          <article class="model-card reveal">
-            <h3>Eficiencia</h3>
-            <p>Planeación colaborativa con roles definidos en dirección metodológica, acompañamiento psicológico, coaching, logística, contenidos y atención comunitaria, con seguimiento financiero, operativo y administrativo.</p>
-          </article>
-          <article class="model-card reveal">
-            <h3>Relevancia</h3>
-            <p>Nace de procesos de apoyo mutuo y lectura emocional y evoluciona hacia una metodología territorial propia. A través de “Formar Formadoras”, capacita mujeres como multiplicadoras de bienestar, derechos, paz, arte y cultura.</p>
-          </article>
-          <article class="model-card reveal">
-            <h3>Enfoque diferencial</h3>
-            <p>Contempla a mujeres cuidadoras, madres cabeza de hogar, jóvenes, personas mayores, personas con discapacidad y comunidad LGTBQ+, atendiendo duelos, dependencia emocional, violencias y barreras frente a la salud mental.</p>
-          </article>
-          <article class="model-card reveal model-card--wide">
-            <h3>Sostenibilidad</h3>
-            <p>Funciona con un modelo mixto de economía social: talleres, mentorías y servicios privados, subsidios cruzados, alianzas institucionales, espacios comunitarios, procesos gratuitos y gestión de recursos públicos o de fomento cuando aplica.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ╭─────────── BIBLIOTECA CARLOS E. RESTREPO ───────────╮ -->
-    <section class="library section" id="biblioteca">
-      <div class="container">
-        <div class="library__grid">
-          <div class="library__intro reveal">
-            <p class="section__eyebrow">Alianza territorial · desde 2019</p>
-            <h2 class="section__title">Articulación con la <em>Biblioteca Carlos E. Restrepo</em></h2>
-            <p class="library__text">Desde 2019, Alexandra Ortega trabaja de manera articulada con la Biblioteca Pública Carlos E. Restrepo, acompañando a sus usuarios en procesos de lectura, estudio y comprensión de la mente, las emociones y la conducta humana.</p>
-            <p class="library__text">Esta articulación ha permitido fortalecer procesos de bienestar emocional, cultura, arte, enfoque de género y transformación comunitaria en el territorio.</p>
+        <div class="capa" id="capa" hidden>
+          <p class="capa__rotulo">Filtrar el documento por área de entrenamiento</p>
+          <div class="capa__botones" role="group" aria-label="Filtrar por área de entrenamiento">
+            <button type="button" class="capa__boton" data-area="deportivo" aria-pressed="false">Rendimiento deportivo</button>
+            <button type="button" class="capa__boton" data-area="emocional" aria-pressed="false">Gestión emocional</button>
+            <button type="button" class="capa__boton" data-area="duelo" aria-pressed="false">Duelo, derrota y lesión</button>
+            <button type="button" class="capa__boton" data-area="caracter" aria-pressed="false">Carácter y disciplina</button>
+            <button type="button" class="capa__boton" data-area="equipo" aria-pressed="false">Equipo y convivencia</button>
+            <button type="button" class="capa__boton" data-area="genero" aria-pressed="false">Liderazgo y enfoque de género</button>
+            <button type="button" class="capa__boton" data-area="adicciones" aria-pressed="false">Prevención de adicciones</button>
+            <button type="button" class="capa__boton" data-area="territorio" aria-pressed="false">Territorio y comunidad</button>
+            <button type="button" class="capa__limpiar" id="capaLimpiar" hidden>Quitar filtros</button>
           </div>
-          <aside class="library__highlight reveal">
-            <p class="library__highlight-eyebrow">Proyecto significativo</p>
-            <h3>Huertas Urbanas con Enfoque de Género</h3>
-            <p>Una acción impulsada desde presupuestos participativos, orientada al fortalecimiento emocional, económico, ambiental y cultural de mujeres y comunidad en el territorio.</p>
-          </aside>
+          <p class="capa__nota">El filtro no oculta nada: solo atenúa lo que no pertenece al área elegida. La identificación, el perfil, la formación y la experiencia nunca se recortan.</p>
+        </div>
+
+        <div class="descarga" id="descargaPanel" hidden>
+          <div class="descarga__acciones">
+            <button type="button" class="btn btn--gold btn--lg" id="btnPdf">Descargar hoja de vida en PDF</button>
+            <button type="button" class="btn btn--ghost-dark btn--lg" id="btnPortafolio">Descargar portafolio · 1 hoja</button>
+            <button type="button" class="btn btn--ghost-dark btn--lg" id="btnPdfEnfocado" disabled>Versión enfocada</button>
+          </div>
+          <label class="descarga__casilla">
+            <input type="checkbox" id="impAnexo" checked>
+            <span>Incluir el portafolio de servicios en la hoja de vida</span>
+          </label>
+          <details class="descarga__ayuda">
+            <summary>Cómo guardarla en PDF</summary>
+            <p>En el cuadro de impresión que se abre, elija:</p>
+            <ul>
+              <li><strong>Destino:</strong> Guardar como PDF</li>
+              <li><strong>Tamaño:</strong> Carta</li>
+              <li><strong>Escala:</strong> 100 %</li>
+              <li><strong>Márgenes:</strong> predeterminados</li>
+              <li><strong>Desmarque</strong> «Encabezados y pies de página» — si queda marcada, el navegador estampa la dirección web y la fecha encima del diseño.</li>
+            </ul>
+            <p class="descarga__ayuda-nota">El PDF de referencia se genera en Chrome o Edge.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- ╭─────────── INCIDENCIA PÚBLICA E INSTITUCIONES ───────────╮ -->
-    <section class="institutions section" id="incidencia">
+    <!-- ╭─────────── F-02b · CASOS DE ÉXITO (pista lateral) ───────────╮ -->
+    <section class="casos section folio-seccion" id="casos" data-seccion="Casos de éxito">
       <div class="container">
-        <p class="section__eyebrow reveal">Incidencia pública y salud mental territorial</p>
-        <h2 class="section__title reveal">Experiencia <em>institucional y comunitaria</em></h2>
-        <p class="institutions__lead reveal">Ha desarrollado procesos, articulado acciones y participado en escenarios de política pública, presupuestos participativos, control social, enfoque de género, salud mental comunitaria y construcción de paz territorial, junto a entidades como:</p>
-        <ul class="institutions__grid reveal">
-          <li>Secretaría Distrital de la Mujer</li>
-          <li>Ministerio del Interior</li>
-          <li>Fuerzas Armadas de Colombia</li>
-          <li>Secretaría de Salud de Bogotá</li>
-          <li>Alcaldía Local de Antonio Nariño</li>
-          <li>Biblioteca Carlos E. Restrepo · BibloRed</li>
-          <li>COLMYEG de Antonio Nariño</li>
-        </ul>
-        <aside class="institutions__feature reveal">
-          <p class="institutions__feature-eyebrow">Círculo de Estado Abierto de Bogotá · 2026</p>
-          <p>En 2026, la Fundación Social GEMB fue invitada a participar en el Círculo de Estado Abierto de Bogotá, un espacio de articulación con organizaciones para aportar a políticas, recomendaciones y acciones distritales. Allí postula la salud mental comunitaria —mujeres, familias y comunidades, prevención de violencias y resolución pacífica de conflictos— como base de la seguridad, la convivencia y la paz sostenible, en diálogo con Casas de Igualdad de Oportunidades para las Mujeres, Juntas de Acción Comunal y organizaciones locales.</p>
-        </aside>
+        <p class="section__eyebrow"><span class="folio"></span>Casos de éxito<span class="seccion__n" aria-live="polite"></span></p>
+        <h2 class="section__title reveal">Mentes que <em>se entrenaron</em> y cambiaron de camino</h2>
+        <p class="casos__lead reveal">Resultados registrados mediante testimonios, seguimiento y participación sostenida. Deslice de lado para recorrerlos.</p>
+
+        <div class="pista" data-pista>
+          <div class="pista__viewport" id="pistaCasos" tabindex="0" role="region" aria-label="Casos de éxito — use las flechas del teclado o deslice de lado">
+            <ol class="pista__rail">
+
+              <li class="pista__item caso caso--destacado" data-areas="deportivo caracter territorio">
+                <p class="caso__etiqueta">Caso destacado · Deporte de alto nivel</p>
+                <h3 class="caso__nombre">Kevin Jiménez</h3>
+                <p class="caso__logro">Futbolista de <strong>futsal</strong>, seleccionado para representar a la <strong>Selección Colombia</strong>.</p>
+                <p class="caso__texto">Salido de las calles del barrio. Un talento que existía desde el principio y que necesitaba una cabeza entrenada para sostenerse: foco, disciplina, manejo de la presión y un proyecto de vida que no dependiera solo del resultado del partido.</p>
+                <p class="caso__cita">«El talento estaba. Lo que había que entrenar era la mente que lo sostiene.»</p>
+                <span class="pendiente" data-pide="CASO KEVIN JIMÉNEZ: permiso por escrito de Kevin (y de su acudiente si el proceso empezó siendo menor) para publicar su nombre; años del proceso; y el nombre exacto del seleccionado o torneo"></span>
+              </li>
+
+              <li class="pista__item caso" data-areas="genero empoderamiento territorio">
+                <p class="caso__etiqueta">Formación de multiplicadoras</p>
+                <h3 class="caso__nombre">+176 mujeres formadas</h3>
+                <p class="caso__logro">Formadas como <strong>replicadoras de bienestar</strong> con la estrategia «Formar Formadoras».</p>
+                <p class="caso__texto">No terminaron como asistentes a un taller: quedaron capacitadas para acompañar a otras personas en su propio territorio, con formación, práctica, seguimiento y principios éticos.</p>
+              </li>
+
+              <li class="pista__item caso" data-areas="emocional caracter territorio">
+                <p class="caso__etiqueta">Transformaciones documentadas</p>
+                <h3 class="caso__nombre">Retomar el camino</h3>
+                <p class="caso__logro">Personas que <strong>retomaron estudios</strong>, crearon proyectos productivos y ejercen liderazgo comunitario.</p>
+                <p class="caso__texto">Llegaron buscando orientación para una dificultad concreta y descubrieron capacidades que no sabían que tenían. Varias se convirtieron después en facilitadoras del método.</p>
+              </li>
+
+              <li class="pista__item caso" data-areas="duelo emocional">
+                <p class="caso__etiqueta">Duelo y pérdida</p>
+                <h3 class="caso__nombre">Sostener la caída</h3>
+                <p class="caso__logro">Más de <strong>7 años</strong> acompañando pérdidas humanas y de mascotas.</p>
+                <p class="caso__texto">Es la misma competencia que necesita un deportista cuando llega la lesión, la derrota o la no convocatoria: atravesar la pérdida sin quedar gobernado por ella.</p>
+              </li>
+
+              <li class="pista__item caso caso--vacio" data-areas="deportivo">
+                <p class="caso__etiqueta">Espacio reservado</p>
+                <h3 class="caso__nombre">Los demás casos</h3>
+                <p class="caso__texto">Hay más casos de éxito del método. Cada uno entra aquí como una ficha más, con nombre, logro y años, cuando estén los datos y el permiso de la persona.</p>
+                <span class="pendiente" data-pide="OTROS CASOS DE ÉXITO: nombre, qué logró, años del proceso y permiso de cada persona"></span>
+              </li>
+
+            </ol>
+          </div>
+          <div class="pista__ctrl">
+            <button type="button" class="pista__nav" data-dir="-1" aria-label="Caso anterior">←</button>
+            <span class="pista__pos" aria-live="polite"></span>
+            <button type="button" class="pista__nav" data-dir="1" aria-label="Caso siguiente">→</button>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ╭─────────── ÁREAS DE EXPERIENCIA ───────────╮ -->
-    <section class="areas section" id="experiencia">
+    <!-- ╭─────────── F-03 · EL MÉTODO VITALICIO ───────────╮ -->
+    <section class="metodo section folio-seccion" id="metodo">
       <div class="container">
-        <p class="section__eyebrow reveal">Áreas de experiencia</p>
-        <h2 class="section__title reveal">Donde el conocimiento <em>se vuelve transformación</em></h2>
+        <p class="section__eyebrow"><span class="folio"></span>El método · Gimnasio emocional vitalicio</p>
+        <h2 class="section__title section__title--light reveal">No es un taller. Es un <em>gimnasio al que se puede volver toda la vida</em></h2>
+        <p class="metodo__lead reveal">La diferencia con una charla o un taller suelto: quien entra al proceso queda con una metodología para seguir practicando, y con un espacio comunitario abierto al que puede regresar sin pagar. El entrenamiento no termina cuando termina la sesión.</p>
+        <div class="metodo__grid">
+          <article class="metodo-card reveal">
+            <span class="metodo-card__num">01</span>
+            <h3>Entra y se entrena</h3>
+            <p>Entrenamiento presencial o virtual: autoconocimiento, gestión emocional, construcción de carácter, transformación de patrones y proyecto de vida.</p>
+          </article>
+          <article class="metodo-card reveal">
+            <span class="metodo-card__num">02</span>
+            <h3>Se lleva la herramienta</h3>
+            <p>Sale con la metodología en la mano para practicar solo: no queda dependiente de la organización ni de un acompañante. La autonomía es el objetivo, no la fidelidad.</p>
+          </article>
+          <article class="metodo-card reveal">
+            <span class="metodo-card__num">03</span>
+            <h3>Vuelve cuando quiera</h3>
+            <p>Los espacios comunitarios de la Biblioteca Carlos E. Restrepo y los virtuales quedan abiertos de por vida, gratuitos para quien no pueda aportar. El aporte voluntario nunca es condición para entrar.</p>
+          </article>
+          <article class="metodo-card reveal">
+            <span class="metodo-card__num">04</span>
+            <h3>Puede multiplicar</h3>
+            <p>Quien aplica primero el método en su propia vida puede formarse como multiplicador y llevarlo a su equipo, su escuela o su barrio, con seguimiento y ética.</p>
+          </article>
+        </div>
+        <p class="metodo__cierre reveal">Se sostiene con <strong>subsidios cruzados</strong>: lo que paga un proceso privado o corporativo financia los espacios gratuitos. Quien puede pagar abre la puerta a quien no.</p>
+      </div>
+    </section>
+
+    <!-- ╭─────────── F-04 · ÁREAS DE ENTRENAMIENTO ───────────╮ -->
+    <section class="areas section folio-seccion" id="areas" data-seccion="Áreas de entrenamiento">
+      <div class="container">
+        <p class="section__eyebrow"><span class="folio"></span>Áreas de entrenamiento<span class="seccion__n" aria-live="polite"></span></p>
+        <h2 class="section__title reveal">Los <em>músculos invisibles</em> que se entrenan</h2>
         <div class="areas__grid">
-          <article class="area-card reveal">
-            <div class="area-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.5 1.2 4.2 2.4h3.6C14.5 6.2 16 5 18 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"/></svg></div>
+          <article class="area-card reveal" data-areas="deportivo caracter">
+            <h3>Manejo de la presión</h3>
+            <p>Competir, ser observado, fallar en público y volver a intentarlo sin quedar gobernado por el miedo.</p>
+            <p class="respaldo">Respaldo: Entrenadora Élite certificada, Total Potentials.</p>
+          </article>
+          <article class="area-card reveal" data-areas="emocional">
             <h3>Gestión emocional</h3>
-            <p>Programas vivenciales y mindfulness para regular, comprender y entrenar las emociones.</p>
+            <p>Identificar, expresar y regular lo que pasa por dentro, en vez de negarlo o estallar.</p>
+            <p class="respaldo">Respaldo: técnica GEMB, desde 2016 · Vipassana.</p>
           </article>
-          <article class="area-card reveal">
-            <div class="area-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 1 7 7c0 2.4-1.2 4-2.5 5.5-.8 1-1 1.6-1 2.5h-7c0-.9-.2-1.5-1-2.5C6.2 14 5 12.4 5 10a7 7 0 0 1 7-7zM9 20h6v1.5H9z"/></svg></div>
-            <h3>Duelo y resignificación</h3>
-            <p>Más de 7 años acompañando pérdidas humanas y de mascotas hacia nuevos comienzos.</p>
+          <article class="area-card reveal" data-areas="caracter deportivo">
+            <h3>Carácter y disciplina</h3>
+            <p>Coherencia, perseverancia y capacidad de sostener una decisión cuando ya no hay ganas.</p>
           </article>
-          <article class="area-card reveal">
-            <div class="area-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9L20 8l-4 3.9.9 5.6L12 14.8 7.1 17.5 8 11.9 4 8l5.6-1.1z"/></svg></div>
+          <article class="area-card reveal" data-areas="duelo">
+            <h3>Duelo, derrota y lesión</h3>
+            <p>Atravesar la pérdida y resignificarla. Más de 7 años acompañando duelo humano y de mascotas.</p>
+          </article>
+          <article class="area-card reveal" data-areas="equipo">
+            <h3>Equipo y convivencia</h3>
+            <p>Comunicación asertiva, límites, resolución de conflictos y vínculos sanos dentro del grupo.</p>
+            <p class="respaldo">Respaldo: comunicación asertiva con enfoque de género.</p>
+          </article>
+          <article class="area-card reveal" data-areas="adicciones">
+            <h3>Prevención de adicciones</h3>
+            <p>Reconocer conductas autodestructivas y dependencias. Practicante del programa de 12 pasos.</p>
+          </article>
+          <article class="area-card reveal" data-areas="deportivo caracter">
+            <h3>Proyecto de vida</h3>
+            <p>Que la identidad del deportista no dependa solo del resultado: estudio, oficio y propósito en paralelo.</p>
+          </article>
+          <article class="area-card reveal" data-areas="emocional territorio">
+            <h3>Inteligencia financiera</h3>
+            <p>La relación con el dinero empieza en la emoción. Clave para un deportista joven con primeros ingresos.</p>
+            <p class="respaldo">Respaldo: DIF en finanzas prácticas, Grupo Ilya · Potencialízate.</p>
+          </article>
+          <article class="area-card reveal" data-areas="genero">
             <h3>Liderazgo y enfoque de género</h3>
-            <p>Formación y empoderamiento de lideresas sociales con educación de enfoque de género.</p>
+            <p>Formación de lideresas y equidad en el territorio y en el deporte.</p>
+            <p class="respaldo">Respaldo: Diplomado UNAD 2023 · COLMYEG desde 2016.</p>
           </article>
-          <article class="area-card reveal">
-            <div class="area-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v11H8l-4 4V4zm4 4h8v1.5H8V8zm0 3h5v1.5H8V11z"/></svg></div>
-            <h3>Comunicación asertiva</h3>
-            <p>Oratoria, facilitación y conferencias de alto impacto social.</p>
+          <article class="area-card reveal" data-areas="territorio equipo">
+            <h3>Entorno protector</h3>
+            <p>Entrenar también a la familia, al entrenador y al docente: el talento se sostiene o se pierde en el entorno.</p>
+            <p class="respaldo">Respaldo: primeros respondientes, Secretaría Distrital de Salud.</p>
           </article>
-          <article class="area-card reveal">
-            <div class="area-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm-7 16c0-3.3 3.1-6 7-6s7 2.7 7 6H5z"/></svg></div>
-            <h3>Empoderamiento femenino</h3>
-            <p>Redes de mujeres y multiplicadoras de bienestar, derechos, paz, arte y cultura.</p>
-          </article>
-          <article class="area-card reveal">
-            <div class="area-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-7-7V3zm1 5v4.6l3.5 2-1 1.7L11 13.7V8h2z"/></svg></div>
-            <h3>Manejo de adicciones</h3>
-            <p>Acompañamiento terapéutico con la técnica de 12 pasos, avalada por la OMS.</p>
-          </article>
-          <article class="area-card reveal">
-            <div class="area-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10l3 6-8 10L4 10l3-6zm2.2 6L12 16l2.8-6H9.2z"/></svg></div>
-            <h3>Resolución de conflictos</h3>
-            <p>Mediación, conciliación y construcción de paz en comunidad.</p>
-          </article>
-          <article class="area-card reveal">
-            <div class="area-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V9h4v11H4zm6 0V4h4v16h-4zm6 0v-7h4v7h-4z"/></svg></div>
-            <h3>Proyectos sociales</h3>
-            <p>Formulación y co-creación de iniciativas comunitarias y presupuestos participativos.</p>
-          </article>
+        </div>
+        <p class="areas__rotulo">Clasificación por competencias, elaboración propia.</p>
+      </div>
+    </section>
+
+    <!-- ╭─────────── F-05 · EXPERIENCIA PROFESIONAL ───────────╮ -->
+    <section class="exps section folio-seccion" id="experiencia">
+      <div class="container">
+        <p class="section__eyebrow"><span class="folio"></span>Experiencia profesional</p>
+        <h2 class="section__title reveal">Trayectoria <em>verificable</em></h2>
+
+        <article class="exp reveal">
+          <header class="exp__cab">
+            <h3 class="exp__entidad">Gimnasio Emocional Mentes Brillantes</h3>
+            <p class="exp__meta"><span class="exp__rol">Fundadora de la técnica · Entrenadora y coach</span><span class="exp__periodo">2016 — a la fecha</span></p>
+          </header>
+          <ul class="exp__logros">
+            <li>Creación y dirección metodológica de la técnica GEMB: educación emocional, psicoeducación, alfabetización emocional y prevención en salud mental.</li>
+            <li>Relacionista pública de la organización entre <strong>2016 y 2023</strong>: articulación de organizaciones, profesionales y ciudadanas con la institucionalidad.</li>
+            <li>Más de 176 personas formadas como replicadoras del método con la estrategia «Formar Formadoras».</li>
+            <li>Modelo validado en la caracterización técnica de organizaciones locales 2026 ante la Alcaldía Local de Antonio Nariño — Mesa Local Más Bienestar.</li>
+            <li>Procesos individuales, grupales, presenciales, virtuales y comunitarios, con espacios gratuitos sostenidos por subsidios cruzados.</li>
+          </ul>
+        </article>
+
+        <article class="exp reveal">
+          <header class="exp__cab">
+            <h3 class="exp__entidad">Consejo Local de Planeación y Participación · Antonio Nariño</h3>
+            <p class="exp__meta"><span class="exp__rol">Comisionada de la mesa de educación</span><span class="exp__periodo">2020 — 2024</span></p>
+          </header>
+          <ul class="exp__logros">
+            <li>Nombrada comisionada por un periodo de cuatro años en la mesa de educación de la localidad.</li>
+            <li>Participación en política pública local, presupuestos participativos y control social.</li>
+          </ul>
+        </article>
+
+        <article class="exp reveal">
+          <header class="exp__cab">
+            <h3 class="exp__entidad">COLMYEG de Antonio Nariño</h3>
+            <p class="exp__meta"><span class="exp__rol">Miembro activa · Formadora de ciudadanas constructoras de paz</span><span class="exp__periodo">2016 — a la fecha</span></p>
+          </header>
+          <ul class="exp__logros">
+            <li>Reconocida por la Alcaldía Local por su destacada participación por los derechos de las mujeres en el Distrito Capital (2016–2023).</li>
+            <li>Sensibilización y prevención de violencias desde el empoderamiento de la mujer.</li>
+            <li>Fortalecimiento de organizaciones, grupos y redes de mujeres para el afrontamiento de situaciones de reto, adversidad y violencias, junto al manejo de adicciones.</li>
+          </ul>
+        </article>
+
+        <article class="exp reveal">
+          <header class="exp__cab">
+            <h3 class="exp__entidad">Biblioteca Pública Carlos E. Restrepo · BibloRed</h3>
+            <p class="exp__meta"><span class="exp__rol">Tallerista articulada</span><span class="exp__periodo">2019 — a la fecha</span></p>
+          </header>
+          <ul class="exp__logros">
+            <li>Base comunitaria de los entrenamientos grupales, talleres vivenciales, alfabetización emocional y la Sala de Reducción del Ego.</li>
+            <li>Acompañamiento a usuarios en procesos de lectura y comprensión de la mente, las emociones y la conducta humana.</li>
+          </ul>
+        </article>
+
+        <article class="exp reveal">
+          <header class="exp__cab">
+            <h3 class="exp__entidad">Fundación Resolver</h3>
+            <p class="exp__meta"><span class="exp__rol">Cofundadora</span><span class="exp__periodo">—</span></p>
+          </header>
+          <ul class="exp__logros">
+            <li>Cofundación de la organización.</li>
+          </ul>
+          <span class="pendiente" data-pide="Fundación Resolver: años de la cofundación y qué hace la organización"></span>
+        </article>
+
+        <article class="exp reveal">
+          <header class="exp__cab">
+            <h3 class="exp__entidad">Emisora La Nuestra · «La voz de las mujeres»</h3>
+            <p class="exp__meta"><span class="exp__rol">Presentadora del programa radial</span><span class="exp__periodo">2020</span></p>
+          </header>
+          <ul class="exp__logros">
+            <li>Conducción del programa en la localidad de Antonio Nariño: psicoeducación y divulgación en medios alternativos de comunicación.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ╭─────────── F-06 · TRAYECTORIA (pista lateral) ───────────╮ -->
+    <section class="linea section folio-seccion" id="trayectoria" data-seccion="Trayectoria">
+      <div class="container">
+        <p class="section__eyebrow"><span class="folio"></span>Trayectoria año por año<span class="seccion__n" aria-live="polite"></span></p>
+        <h2 class="section__title reveal">Diez años <em>de recorrido</em></h2>
+        <p class="casos__lead reveal">Deslice de lado para avanzar en el tiempo.</p>
+
+        <div class="pista pista--linea" data-pista>
+          <div class="pista__viewport" id="pistaLinea" tabindex="0" role="region" aria-label="Trayectoria año por año — use las flechas del teclado o deslice de lado">
+            <ol class="pista__rail">
+              <li class="pista__item hito" data-areas="genero territorio emocional">
+                <span class="hito__anio">2016</span>
+                <h3>Nace el método</h3>
+                <p>Comienzan los procesos de formación en inteligencia emocional y acompañamiento comunitario, con participación sostenida en el COLMYEG de Antonio Nariño y en presupuestos participativos. El origen: un grupo de mujeres reunidas alrededor de un libro.</p>
+              </li>
+              <li class="pista__item hito" data-areas="emocional territorio">
+                <span class="hito__anio">2019</span>
+                <h3>Base en la Biblioteca</h3>
+                <p>Articulación con la Biblioteca Pública Carlos E. Restrepo, que se convierte en la casa comunitaria del método: entrenamientos, talleres y Sala de Reducción del Ego.</p>
+              </li>
+              <li class="pista__item hito" data-areas="genero equipo">
+                <span class="hito__anio">2020</span>
+                <h3>Radio y consejo local</h3>
+                <p>Presentadora de «La voz de las mujeres» en la emisora La Nuestra, y nombrada comisionada de la mesa de educación del Consejo Local de Planeación por cuatro años.</p>
+              </li>
+              <li class="pista__item hito" data-areas="genero territorio">
+                <span class="hito__anio">2022</span>
+                <h3>Innovación pública</h3>
+                <p>Diplomado en Innovación Pública y Formulación de Proyectos con la OEI, en convenio con la Secretaría de la Mujer y la Alcaldía Mayor de Bogotá.</p>
+              </li>
+              <li class="pista__item hito" data-areas="genero territorio">
+                <span class="hito__anio">2023</span>
+                <h3>Lideresa incidente</h3>
+                <p>Condecorada como lideresa incidente por su trabajo en la reivindicación de los derechos de las mujeres, y diplomado en Formulación de Proyectos con Enfoque de Género (UNAD).</p>
+              </li>
+              <li class="pista__item hito" data-areas="genero territorio">
+                <span class="hito__anio">2024</span>
+                <h3>Huertas Urbanas</h3>
+                <p>Impulsa el proyecto 32766 «Huertas Urbanas con Enfoque de Género» desde presupuestos participativos: fortalecimiento emocional, económico, ambiental y cultural.</p>
+              </li>
+              <li class="pista__item hito hito--alto" data-areas="emocional equipo">
+                <span class="hito__anio">2025</span>
+                <h3>Cumbre Global de Salud Mental</h3>
+                <p>Invitada como ponente por la metodología GEMB, presentada como movimiento pedagógico y terapéutico de alfabetización emocional, inclusión social y formación de agentes de cambio.</p>
+              </li>
+              <li class="pista__item hito hito--alto" data-areas="territorio equipo adicciones">
+                <span class="hito__anio">2026</span>
+                <h3>Estado Abierto y prescripción social</h3>
+                <p>Invitación al Círculo de Estado Abierto de Bogotá; preselección del Ministerio del Interior para la revista «Defensoras de Nuestra Colombia»; y articulación con la Secretaría Distrital de Salud en primeros respondientes y prescripción social.</p>
+              </li>
+            </ol>
+          </div>
+          <div class="pista__ctrl">
+            <button type="button" class="pista__nav" data-dir="-1" aria-label="Año anterior">←</button>
+            <span class="pista__pos" aria-live="polite"></span>
+            <button type="button" class="pista__nav" data-dir="1" aria-label="Año siguiente">→</button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ╭─────────── RECONOCIMIENTOS ───────────╮ -->
-    <section class="honors section" id="reconocimientos">
+    <!-- ╭─────────── F-07 · FORMACIÓN ───────────╮ -->
+    <!-- La formación es núcleo del documento: NO lleva data-seccion ni
+         data-areas, así ningún filtro ni ninguna impresión la recorta. -->
+    <section class="education section folio-seccion" id="formacion">
+      <div class="container">
+        <p class="section__eyebrow"><span class="folio"></span>Formación académica y complementaria</p>
+        <h2 class="section__title reveal">Raíces sólidas para <em>entrenar con rigor</em></h2>
+        <ul class="education__list">
+          <li class="reveal"><strong>Psicóloga</strong><span>Título profesional</span><span class="pendiente" data-pide="Universidad y año de grado de Psicología (la web decía Politécnico Grancolombiano — confirmar)"></span></li>
+          <li class="reveal"><strong>Coach Ontológica</strong><span>Certificación profesional</span><span class="pendiente" data-pide="Institución y año de la certificación de Coach Ontológica"></span></li>
+          <li class="reveal"><strong>Coach en Habilidades Gerenciales</strong><span>Certificación</span></li>
+          <li class="reveal"><strong>Entrenadora Élite certificada</strong><span>Total Potentials — formación de entrenadores y auditorios de alto nivel</span></li>
+          <li class="reveal"><strong>Diplomado en Formulación de Proyectos y Cooperación con Enfoque de Género</strong><span>UNAD</span><em class="education__anio">2023</em></li>
+          <li class="reveal"><strong>Diplomado en Innovación Pública, Formulación de Proyectos y Participación</strong><span>OEI, en convenio con la Secretaría de la Mujer y la Alcaldía Mayor de Bogotá</span><em class="education__anio">2022</em></li>
+          <li class="reveal"><strong>Diplomado en Programación Neurolingüística e Inteligencias Racionales</strong><span>Diplomado</span></li>
+          <li class="reveal"><strong>Diplomado en Psicología Clínica Infantil</strong><span>Diplomado</span></li>
+          <li class="reveal"><strong>Potencialízate</strong><span>Graduada — «Libera el poder de tu influencia» y «Libera tu potencial financiero»</span></li>
+          <li class="reveal"><strong>DIF en Finanzas Prácticas</strong><span>Grupo Ilya</span></li>
+          <li class="reveal"><strong>TRT · Formación de formadores</strong><span>Instituto de Formadores Internacionales</span></li>
+          <li class="reveal"><strong>PL certificada</strong><span>Certificación</span></li>
+          <li class="reveal"><strong>Programa de 12 pasos</strong><span>Practicante</span></li>
+          <li class="reveal"><strong>Meditación Vipassana</strong><span>Meditadora regular · técnica internacional S. N. Goenka</span></li>
+          <li class="reveal"><strong>Acompañamiento del duelo humano y de mascotas</strong><span>Más de 7 años de experiencia</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ╭─────────── F-08 · RECONOCIMIENTOS ───────────╮ -->
+    <section class="honors section folio-seccion" id="reconocimientos" data-seccion="Reconocimientos">
       <div class="honors__glow" aria-hidden="true"></div>
       <div class="container">
-        <p class="section__eyebrow section__eyebrow--light reveal">Reconocimientos e impacto social</p>
-        <h2 class="section__title section__title--light reveal">Una lideresa que <em>deja huella</em> en su territorio</h2>
+        <p class="section__eyebrow section__eyebrow--light"><span class="folio"></span>Reconocimientos y distinciones<span class="seccion__n" aria-live="polite"></span></p>
+        <h2 class="section__title section__title--light reveal">Una trayectoria que <em>deja huella</em></h2>
         <div class="honors__grid">
-          <article class="honor-card reveal">
+          <article class="honor-card reveal" data-areas="genero territorio">
             <span class="honor-card__num">01</span>
-            <h3>Lideresa incidente</h3>
-            <p>Reconocida por la Alcaldía Local de Antonio Nariño por su liderazgo social y su participación en los derechos de las mujeres.</p>
+            <h3>Condecorada como lideresa incidente</h3>
+            <p>Por enfocar su trabajo en la reivindicación de los derechos de las mujeres y el restablecimiento de su dignidad.</p>
+            <p class="respaldo">Otorga: Alcaldía Local de Antonio Nariño · 2023</p>
           </article>
-          <article class="honor-card reveal">
+          <article class="honor-card reveal" data-areas="genero territorio">
             <span class="honor-card__num">02</span>
             <h3>Defensoras de Nuestra Colombia</h3>
-            <p>Preseleccionada en 2026 por el Ministerio del Interior para la revista nacional “Defensoras de Nuestra Colombia”.</p>
+            <p>Preseleccionada para la revista nacional, reconocimiento a procesos colectivos de prevención, protección y autoprotección.</p>
+            <p class="respaldo">Otorga: Ministerio del Interior · 2026</p>
           </article>
-          <article class="honor-card reveal">
+          <article class="honor-card reveal" data-areas="emocional equipo">
             <span class="honor-card__num">03</span>
+            <h3>Ponente en la Cumbre Global de Salud Mental</h3>
+            <p>Invitada por la metodología GEMB como experiencia de alfabetización emocional, inclusión social y formación de agentes de cambio.</p>
+            <p class="respaldo">Cumbre Global de Salud Mental · 2025</p>
+          </article>
+          <article class="honor-card reveal" data-areas="territorio">
+            <span class="honor-card__num">04</span>
             <h3>Gala de Control Social</h3>
             <p>Reconocimiento en la categoría Paz y Reconciliación, como hito de incidencia territorial.</p>
+            <span class="pendiente" data-pide="Año del reconocimiento de la Gala de Control Social"></span>
           </article>
-          <article class="honor-card reveal">
-            <span class="honor-card__num">04</span>
-            <h3>COLMYEG · desde 2016</h3>
-            <p>Participación sostenida en escenarios locales de mujer y equidad de género en Antonio Nariño.</p>
-          </article>
-          <article class="honor-card reveal">
+          <article class="honor-card reveal" data-areas="genero">
             <span class="honor-card__num">05</span>
-            <h3>Presupuestos participativos</h3>
-            <p>Representante de proyectos comunitarios, entre ellos el 32766 “Huertas Urbanas con Enfoque de Género”.</p>
+            <h3>Reconocimiento por los derechos de las mujeres</h3>
+            <p>Por su destacada participación por los derechos de las mujeres en el Distrito Capital.</p>
+            <p class="respaldo">Otorga: Alcaldía Local de Antonio Nariño · 2016–2023</p>
           </article>
-          <article class="honor-card reveal">
+          <article class="honor-card reveal" data-areas="territorio genero">
             <span class="honor-card__num">06</span>
-            <h3>Seguridad y paz para las mujeres</h3>
-            <p>Participación en escenarios de seguridad para las mujeres y de construcción de convivencia en el Distrito Capital.</p>
+            <h3>Representante en presupuestos participativos</h3>
+            <p>Representante de proyectos comunitarios, entre ellos el 32766 «Huertas Urbanas con Enfoque de Género».</p>
+            <p class="respaldo">Presupuestos participativos, Antonio Nariño · 2024</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ╭─────────── FORMACIÓN ───────────╮ -->
-    <section class="education section" id="formacion">
+    <!-- ╭─────────── F-09 · ENTIDADES ───────────╮ -->
+    <section class="institutions section folio-seccion" id="entidades" data-seccion="Entidades">
       <div class="container">
-        <p class="section__eyebrow reveal">Formación y certificaciones</p>
-        <h2 class="section__title reveal">Raíces sólidas para <em>acompañar con rigor</em></h2>
-        <div class="education__grid">
-          <ul class="education__list">
-            <li class="reveal"><strong>Psicología</strong><span>Politécnico Grancolombiano</span></li>
-            <li class="reveal"><strong>Psicología clínica infantil</strong><span>Especialización profesional</span></li>
-            <li class="reveal"><strong>Coach Ontológica</strong><span>Certificación profesional</span></li>
-            <li class="reveal"><strong>Diplomado en Formulación de Proyectos con Enfoque de Género</strong><span>UNAD · 2023</span></li>
-            <li class="reveal"><strong>Diplomado en Innovación Pública y Formulación de Proyectos</strong><span>OEI y Alcaldía Mayor · 2022</span></li>
-            <li class="reveal"><strong>Entrenadora Élite en Oratoria y Transformación Personal</strong><span>Total Potentials</span></li>
-            <li class="reveal"><strong>Acompañamiento del duelo humano y de mascotas</strong><span>+7 años de experiencia</span></li>
-          </ul>
-          <aside class="education__books reveal">
-            <p class="education__books-eyebrow">Publicaciones</p>
-            <h3>Escritora de <em>tres libros</em></h3>
-            <div class="books" aria-label="Temas de sus tres libros">
-              <div class="book book--1"><span>Meditaciones</span></div>
-              <div class="book book--2"><span>Desarrollo personal</span></div>
-              <div class="book book--3"><span>Empoderamiento</span></div>
-            </div>
-            <p class="education__books-note">Palabras que entrenan la mente y abrazan el corazón.</p>
-          </aside>
+        <p class="section__eyebrow"><span class="folio"></span>Entidades con las que ha trabajado<span class="seccion__n" aria-live="polite"></span></p>
+        <h2 class="section__title reveal">Experiencia <em>institucional y comunitaria</em></h2>
+        <ul class="institutions__grid reveal">
+          <li data-areas="genero"><span class="ent__nombre">Secretaría Distrital de la Mujer</span><span class="ent__ambito">Enfoque de género y derechos de las mujeres</span></li>
+          <li data-areas="adicciones territorio"><span class="ent__nombre">Secretaría Distrital de Salud</span><span class="ent__ambito">Primeros respondientes en salud mental y prescripción social</span></li>
+          <li data-areas="genero territorio"><span class="ent__nombre">Ministerio del Interior</span><span class="ent__ambito">Revista «Defensoras de Nuestra Colombia», 2026</span></li>
+          <li data-areas="equipo territorio"><span class="ent__nombre">Fuerzas Armadas de Colombia</span><span class="ent__ambito">Convivencia y construcción de paz</span></li>
+          <li data-areas="territorio"><span class="ent__nombre">Alcaldía Local de Antonio Nariño</span><span class="ent__ambito">Presupuestos participativos y Mesa Local Más Bienestar</span></li>
+          <li data-areas="emocional territorio"><span class="ent__nombre">Biblioteca Carlos E. Restrepo · BibloRed</span><span class="ent__ambito">Base comunitaria desde 2019</span></li>
+          <li data-areas="genero"><span class="ent__nombre">COLMYEG de Antonio Nariño</span><span class="ent__ambito">Mujer y equidad de género, desde 2016</span></li>
+          <li data-areas="territorio"><span class="ent__nombre">OEI · Alcaldía Mayor de Bogotá</span><span class="ent__ambito">Innovación pública y formulación de proyectos, 2022</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ╭─────────── F-10 · PUBLICACIONES Y PONENCIAS ───────────╮ -->
+    <section class="pubs section folio-seccion" id="publicaciones" data-seccion="Publicaciones">
+      <div class="container container--narrow">
+        <p class="section__eyebrow"><span class="folio"></span>Publicaciones, medios y ponencias<span class="seccion__n" aria-live="polite"></span></p>
+        <h2 class="section__title reveal">Palabras que <em>entrenan la mente</em></h2>
+
+        <div class="pub reveal" data-areas="emocional">
+          <h3>Autora de tres libros</h3>
+          <p>Tres libros sobre meditaciones, desarrollo personal y empoderamiento.</p>
+          <span class="pendiente" data-pide="Títulos de los tres libros, año y sello editorial (o si son autopublicados)"></span>
+        </div>
+
+        <div class="pub reveal" data-areas="genero equipo">
+          <h3>«La voz de las mujeres» · Emisora La Nuestra, 2020</h3>
+          <p>Presentadora del programa radial en la localidad de Antonio Nariño. Psicoeducación y divulgación en medios alternativos de comunicación.</p>
+        </div>
+
+        <div class="pub reveal" data-areas="emocional equipo">
+          <h3>Ponencia · Cumbre Global de Salud Mental, 2025</h3>
+          <p>Invitada como ponente por la metodología <strong>Gimnasio Emocional Mentes Brillantes</strong>. En la ponencia sostuvo que vivimos con mucha información pero poco autoconocimiento, que la salud mental no es solo la ausencia de ansiedad o depresión sino «el arte de vivir bien», y que el método fortalece «músculos invisibles» como la paciencia, la tolerancia, la empatía, la resiliencia y el amor propio.</p>
+          <blockquote class="pub__cita">«La verdadera seguridad no comienza en las calles, sino en las personas; no comienza en las instituciones, sino en las familias. Cuando una persona aprende a gestionar sus emociones, se convierte en un <em>territorio de paz</em>.»</blockquote>
+        </div>
+
+        <div class="pub reveal" data-areas="emocional territorio">
+          <h3>Psicoeducación abierta y gratuita</h3>
+          <p>Contenidos educativos, meditaciones, encuentros comunitarios y programas de radio: herramientas de educación emocional disponibles a diario para quien no puede pagar una sesión privada.</p>
         </div>
       </div>
     </section>
 
-    <!-- ╭─────────── CIERRE + CONTACTO ───────────╮ -->
+    <!-- ╭─────────── F-11 · MARCO LEGAL ───────────╮ -->
+    <section class="legal section folio-seccion" id="marco">
+      <div class="container container--narrow">
+        <p class="section__eyebrow"><span class="folio"></span>Marco legal y alcance</p>
+        <h2 class="section__title reveal">Qué hace y qué <em>no</em> hace este entrenamiento</h2>
+        <p class="legal__texto reveal">La <strong>Ley 2460 del 16 de junio de 2025</strong>, que modificó la Ley 1616 de 2013, fortaleció en Colombia el enfoque preventivo, educativo, comunitario y territorial de la salud mental, y reconoció el derecho a recibir formación y acompañamiento en el manejo de las emociones desde la infancia. El trabajo de GEMB desde 2016 se corresponde directamente con ese enfoque.</p>
+        <p class="legal__aviso reveal">El entrenamiento emocional <strong>no sustituye</strong> la atención médica, psicológica o psiquiátrica cuando esta es necesaria, ni reemplaza un diagnóstico o un tratamiento. Su función es preventiva, psicoeducativa, formativa y comunitaria. Cuando se requiere atención especializada, se remite.</p>
+      </div>
+    </section>
+
+    <!-- ╭─────────── F-12 · REFERENCIAS ───────────╮ -->
+    <section class="refs section folio-seccion" id="referencias">
+      <div class="container container--narrow">
+        <p class="section__eyebrow"><span class="folio"></span>Referencias</p>
+        <p class="refs__linea reveal">Referencias personales y laborales disponibles a solicitud de la entidad.</p>
+        <span class="pendiente" data-pide="Al menos dos referencias: nombre, cargo, entidad, relación y teléfono — confirmar con Alexandra que puede entregarlas"></span>
+      </div>
+    </section>
+
+    <!-- ╭─────────── F-13 · PORTAFOLIO DE SERVICIOS ───────────╮ -->
+    <section class="services section folio-seccion anexo-servicios" id="anexo" data-seccion="Portafolio">
+      <div class="container">
+        <p class="section__eyebrow"><span class="folio"></span>Portafolio de servicios · Coach deportivo mental<span class="seccion__n" aria-live="polite"></span></p>
+        <h2 class="section__title reveal">Entrenamiento mental para <em>equipos, escuelas y territorios</em></h2>
+        <p class="services__lead reveal">Cuatro formas de contratarnos. Todas incluyen lo mismo: la persona no sale con un taller, sale con una metodología y con un gimnasio emocional abierto de por vida.</p>
+
+        <ul class="services__lista">
+          <li class="reveal" data-areas="deportivo caracter">
+            <strong>1 · Entrenamiento mental del deportista</strong>
+            <span>Individual o por grupos pequeños. Presión, foco, disciplina, manejo de la derrota y de la lesión, y proyecto de vida más allá del resultado. Presencial o virtual.</span>
+          </li>
+          <li class="reveal" data-areas="equipo deportivo">
+            <strong>2 · Cabeza de equipo</strong>
+            <span>Para el plantel completo y su cuerpo técnico: convivencia, comunicación asertiva, resolución de conflictos y cohesión. Incluye sesión aparte con entrenadores y familias.</span>
+          </li>
+          <li class="reveal" data-areas="territorio equipo">
+            <strong>3 · Escuelas deportivas y colegios en territorio</strong>
+            <span>Alfabetización emocional para niños y jóvenes en escuelas de barrio, colegios y clubes: prevención de violencias y de adicciones, entornos protectores y rutas de atención.</span>
+          </li>
+          <li class="reveal" data-areas="territorio genero">
+            <strong>4 · Formación de multiplicadores</strong>
+            <span>Formamos a entrenadores, docentes y líderes para que sostengan el método en su propia escuela o barrio, con seguimiento y principios éticos. Es lo que hace el proceso sostenible.</span>
+          </li>
+        </ul>
+
+        <div class="incluye reveal">
+          <h3 class="incluye__titulo">Lo que siempre está incluido</h3>
+          <ul class="incluye__lista">
+            <li><strong>Gimnasio emocional vitalicio:</strong> acceso permanente a los espacios comunitarios, presenciales y virtuales, sin costo.</li>
+            <li><strong>La metodología en la mano:</strong> herramientas para seguir practicando solo, sin depender de nosotros.</li>
+            <li><strong>Modelo solidario:</strong> lo que paga una institución financia los espacios gratuitos para quien no puede pagar.</li>
+            <li><strong>Alcance nacional:</strong> modalidad virtual y formación de facilitadores para llegar a otros territorios.</li>
+          </ul>
+        </div>
+
+        <p class="services__cierre reveal">Para cotizar: <a href="mailto:yaosproactiva@hotmail.com">yaosproactiva@hotmail.com</a> · <a href="tel:+573208413878">+57 320 841 3878</a></p>
+      </div>
+    </section>
+
+    <!-- ╭─────────── CIERRE (solo pantalla) ───────────╮ -->
     <section class="closing" id="contacto">
       <div class="closing__glow" aria-hidden="true"></div>
       <div class="container container--narrow">
-        <p class="closing__quote reveal">«Cuando una persona aprende a gestionar sus emociones, <em>se convierte en un territorio de paz.</em>»</p>
-        <p class="closing__sub reveal">Conferencias · Talleres vivenciales · Formación de formadoras · Procesos de bienestar emocional</p>
+        <p class="closing__quote reveal">«El talento estaba. Lo que había que entrenar era <em>la mente que lo sostiene.</em>»</p>
+        <p class="closing__sub reveal">Deportistas · Equipos · Escuelas · Colegios · Territorios</p>
         <div class="closing__actions reveal">
           <a class="btn btn--gold btn--lg" href="mailto:yaosproactiva@hotmail.com">Escribir a Alexandra</a>
           <a class="btn btn--ghost btn--lg" href="tel:+573208413878">Llamar · 320 841 3878</a>
@@ -427,12 +717,24 @@
         </ul>
       </div>
     </section>
+
+    <!-- ╭─────────── CIERRE FORMAL (solo impresión) ───────────╮ -->
+    <div class="print-firma" aria-hidden="true">
+      <p class="print-firma__declaracion">Declaro que la información aquí consignada es veraz y puede ser verificada con las entidades mencionadas.</p>
+      <p class="print-firma__ciudad">Ciudad y fecha: ______________________________ , <span id="firmaFecha"></span></p>
+      <div class="print-firma__linea"></div>
+      <p class="print-firma__rotulo">Yudy Alexandra Ortega Salamanca · C.C. 52.377.161</p>
+      <p class="print-firma__url">Versión en línea verificable: <span class="url-publica-txt"></span></p>
+    </div>
   </main>
+
+  <div class="sello-enfoque" id="selloEnfoque" aria-hidden="true"></div>
+  <div class="print-pie" aria-hidden="true" id="printPie"></div>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© <span id="year">2026</span> Alexandra Ortega · Fundación Social Gimnasio Emocional Mentes Brillantes · NIT 901.002.849-3</p>
-      <p class="footer__tag">Tallerista · Conferencista · Formadora en salud mental</p>
+      <p>© <span id="year">2026</span> Alexandra Ortega · Gimnasio Emocional Mentes Brillantes · NIT 901.002.849-3</p>
+      <p class="footer__tag">Coach deportivo mental · El poder de entrenar la mente</p>
     </div>
   </footer>
 

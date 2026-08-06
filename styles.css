@@ -765,12 +765,17 @@ img { max-width: 100%; display: block; }
 .footer__tag { letter-spacing: .08em; }
 
 /* ── Animaciones al hacer scroll ────────────────────────── */
-.reveal {
+/* IMPORTANTE: .reveal NACE VISIBLE. Solo se oculta cuando el JavaScript
+   confirmó que está corriendo (html.js). Así, sin JS o al imprimir, el
+   documento se ve completo en vez de quedar en blanco. No lo invierta. */
+.reveal { opacity: 1; transform: none; }
+
+html.js .reveal {
   opacity: 0; transform: translateY(34px);
   transition: opacity .85s ease, transform .85s cubic-bezier(.22, .8, .3, 1);
   transition-delay: var(--d, 0s);
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+html.js .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -824,4 +829,839 @@ img { max-width: 100%; display: block; }
   .summit__grid, .services__grid, .model__grid, .institutions__grid { grid-template-columns: 1fr; }
   .services__lead, .model__lead, .institutions__lead { margin-top: -1rem; }
   .footer__inner { justify-content: center; text-align: center; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HOJA DE VIDA · componentes nuevos
+   (todo lo de abajo se agregó al convertir la página en
+    hoja de vida con navegación de dos ejes y salida a PDF)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Folios citables: F-01, F-02… los cuenta el CSS solo ─── */
+body { counter-reset: folio; }
+.folio-seccion { counter-increment: folio; }
+.folio::before {
+  content: "F-" counter(folio, decimal-leading-zero);
+  margin-right: .8rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--gold);
+}
+.section__eyebrow--light .folio::before { color: var(--gold-soft); }
+
+/* Conteo por sección que aparece al filtrar */
+.seccion__n {
+  margin-left: .9rem; padding-left: .9rem;
+  border-left: 1px solid rgba(201, 164, 92, .45);
+  letter-spacing: .06em; text-transform: none;
+  font-weight: 400; color: var(--text-soft);
+}
+.seccion__n:empty { display: none; }
+.section__eyebrow--light .seccion__n { color: rgba(250, 247, 242, .75); }
+
+/* ── Riel de progreso del documento ─────────────────────── */
+.riel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 110;
+  height: 3px; background: rgba(250, 247, 242, .08);
+}
+.riel__barra {
+  display: block; height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--lavender), var(--gold));
+}
+
+/* ── F-01 Identificación ────────────────────────────────── */
+.ident__para {
+  margin-bottom: 1.6rem; padding: .8rem 1.2rem;
+  border-left: 3px solid var(--gold);
+  background: var(--lavender-soft);
+  font-size: .98rem; color: var(--plum);
+}
+.ident__datos {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 0 2.5rem;
+}
+.ident__fila {
+  display: grid; grid-template-columns: 12.5rem 1fr; gap: 1rem;
+  padding: .85rem 0;
+  border-bottom: 1px solid rgba(109, 79, 161, .14);
+  align-items: baseline;
+}
+.ident__fila--ancha { grid-column: 1 / -1; }
+.ident__fila dt {
+  font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--plum); font-weight: 500;
+}
+.ident__fila dd { font-size: 1rem; color: var(--text); font-variant-numeric: tabular-nums; }
+.ident__fila dd a { color: var(--text); text-decoration: none; border-bottom: 1px solid rgba(201, 164, 92, .6); }
+.ident__fila dd a:hover { color: var(--plum); }
+.ident__nota { color: var(--text-soft); font-size: .88rem; }
+
+/* ── PISTAS: navegación lateral dentro del documento ────── */
+.pista { position: relative; margin-top: .5rem; }
+
+.pista__viewport {
+  overflow-x: auto; overflow-y: hidden;
+  /* El anclaje sirve para el deslizamiento con el dedo. NO se pone
+     scroll-behavior: smooth aquí: el anclaje obligatorio cancela la
+     animación nativa del navegador y la pista se queda quieta.
+     El movimiento suave de los botones lo anima script.js. */
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 164, 92, .55) transparent;
+  padding: .5rem .3rem 1.6rem;
+  margin-inline: -.3rem;
+  /* que el foco del teclado se vea, porque el viewport es enfocable */
+  border-radius: var(--radius);
+}
+.pista__viewport:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.pista__viewport::-webkit-scrollbar { height: 8px; }
+.pista__viewport::-webkit-scrollbar-track { background: rgba(109, 79, 161, .1); border-radius: 8px; }
+.pista__viewport::-webkit-scrollbar-thumb { background: rgba(201, 164, 92, .55); border-radius: 8px; }
+
+.pista__rail {
+  list-style: none;
+  display: flex; align-items: stretch; gap: 1.2rem;
+  padding-right: 2rem;
+}
+.pista__item {
+  /* Alineación por el borde izquierdo: es lo predecible cuando caben
+     varias fichas a la vez. Con "center" el indicador y los saltos
+     se sienten erráticos en pantalla ancha. */
+  scroll-snap-align: start;
+  flex: 0 0 min(420px, 82vw);
+  display: flex; flex-direction: column; gap: .55rem;
+}
+
+.pista__ctrl {
+  display: flex; align-items: center; gap: 1rem;
+  margin-top: .2rem;
+}
+.pista__nav {
+  width: 46px; height: 46px; flex: none;
+  display: grid; place-items: center;
+  font-size: 1.15rem; line-height: 1;
+  color: var(--plum); cursor: pointer;
+  background: var(--white);
+  border: 1px solid rgba(109, 79, 161, .22);
+  border-radius: 50%;
+  transition: background var(--transition), color var(--transition), transform var(--transition), opacity var(--transition);
+}
+.pista__nav:hover:not(:disabled) { background: var(--plum); color: var(--cream); transform: translateY(-2px); }
+.pista__nav:disabled { opacity: .3; cursor: default; }
+.pista__pos {
+  font-size: .85rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-soft); font-variant-numeric: tabular-nums;
+}
+
+/* ── Casos de éxito ─────────────────────────────────────── */
+.casos { background: linear-gradient(180deg, var(--cream), var(--lavender-soft) 130%); }
+.casos__lead { max-width: 60ch; margin: -1.6rem 0 1.4rem; color: var(--text-soft); font-size: 1.02rem; }
+
+.caso {
+  padding: 2rem 1.9rem;
+  background: var(--white);
+  border: 1px solid rgba(109, 79, 161, .12);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 40px -24px rgba(46, 28, 80, .25);
+}
+.caso__etiqueta {
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--plum); font-weight: 500;
+}
+.caso__nombre {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 1.7rem; line-height: 1.15; color: var(--ink);
+}
+.caso__logro { font-size: 1rem; color: var(--text); }
+.caso__logro strong { color: var(--plum); font-weight: 500; }
+.caso__texto { font-size: .95rem; color: var(--text-soft); line-height: 1.6; flex: 1; }
+.caso__cita {
+  margin-top: .4rem; padding-top: .9rem;
+  border-top: 1px solid rgba(201, 164, 92, .45);
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1rem; color: var(--plum);
+}
+
+.caso--destacado {
+  background: linear-gradient(158deg, var(--ink), var(--ink-soft));
+  border-color: rgba(201, 164, 92, .45);
+}
+.caso--destacado .caso__etiqueta { color: var(--gold); }
+.caso--destacado .caso__nombre { color: var(--cream); }
+.caso--destacado .caso__logro { color: rgba(250, 247, 242, .92); }
+.caso--destacado .caso__logro strong { color: var(--gold-soft); }
+.caso--destacado .caso__texto { color: rgba(250, 247, 242, .75); }
+.caso--destacado .caso__cita { color: var(--gold-soft); }
+
+.caso--vacio { background: transparent; border-style: dashed; box-shadow: none; }
+.caso--vacio .caso__nombre { color: var(--text-soft); }
+
+/* ── Trayectoria: hitos de la pista ─────────────────────── */
+.linea { background: linear-gradient(180deg, var(--cream), var(--rose) 130%); }
+.pista--linea .pista__item { flex-basis: min(360px, 78vw); }
+
+.hito {
+  position: relative;
+  padding: 1.9rem 1.7rem;
+  background: var(--white);
+  border: 1px solid rgba(109, 79, 161, .12);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+}
+.hito__anio {
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: 2rem; line-height: 1; color: var(--plum);
+  font-variant-numeric: tabular-nums;
+}
+.hito h3 {
+  font-weight: 500; font-size: 1.1rem; color: var(--ink);
+  margin: .2rem 0 .1rem; line-height: 1.3;
+}
+.hito p { font-size: .93rem; color: var(--text-soft); line-height: 1.6; }
+.hito--alto { border-top-color: var(--plum); }
+
+/* ── El método (sección oscura) ─────────────────────────── */
+.metodo {
+  position: relative;
+  background:
+    radial-gradient(55% 60% at 15% 10%, rgba(109, 79, 161, .42), transparent 70%),
+    linear-gradient(160deg, #1c1429, var(--ink) 55%, #18102a 100%);
+  color: var(--cream);
+  overflow: hidden;
+}
+.metodo .section__eyebrow { color: var(--lavender); }
+.metodo .section__eyebrow .folio::before { color: var(--gold-soft); }
+.metodo__lead {
+  max-width: 68ch; margin: -1.8rem 0 2.8rem;
+  font-size: 1.06rem; color: rgba(250, 247, 242, .82);
+}
+.metodo__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.metodo-card {
+  padding: 1.9rem 1.6rem;
+  background: rgba(250, 247, 242, .045);
+  border: 1px solid rgba(185, 167, 230, .22);
+  border-radius: var(--radius);
+  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+.metodo-card:hover { transform: translateY(-6px); border-color: rgba(201, 164, 92, .5); background: rgba(250, 247, 242, .085); }
+.metodo-card__num {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1.5rem; color: var(--gold); line-height: 1;
+}
+.metodo-card h3 { font-weight: 500; font-size: 1.08rem; color: var(--cream); margin: .7rem 0 .5rem; }
+.metodo-card p { font-size: .92rem; color: rgba(250, 247, 242, .74); line-height: 1.6; }
+.metodo__cierre {
+  margin-top: 2.6rem; padding-top: 1.6rem;
+  border-top: 1px solid rgba(201, 164, 92, .35);
+  max-width: 70ch; font-size: 1rem; color: rgba(250, 247, 242, .82);
+}
+.metodo__cierre strong { color: var(--gold-soft); font-weight: 500; }
+
+/* ── F-05 Experiencia profesional ───────────────────────── */
+.exps__nota { margin: -1.8rem 0 2rem; font-size: .95rem; font-style: italic; color: var(--text-soft); }
+.exp {
+  padding: 1.7rem 0;
+  border-bottom: 1px solid rgba(109, 79, 161, .16);
+}
+.exp:last-child { border-bottom: 0; }
+.exp__cab { margin-bottom: .8rem; }
+.exp__entidad {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 1.32rem; color: var(--ink); line-height: 1.25;
+}
+.exp__meta {
+  display: flex; flex-wrap: wrap; gap: .4rem 1.2rem;
+  margin-top: .25rem; align-items: baseline;
+}
+.exp__rol { font-size: .98rem; color: var(--plum); font-weight: 500; }
+.exp__periodo {
+  margin-left: auto;
+  font-size: .88rem; letter-spacing: .08em;
+  color: var(--text-soft); font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.exp__logros { list-style: none; display: grid; gap: .5rem; }
+.exp__logros li {
+  position: relative; padding-left: 1.3rem;
+  font-size: .96rem; color: var(--text-soft); line-height: 1.6;
+}
+.exp__logros li::before {
+  content: ""; position: absolute; left: 0; top: .62em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+}
+.exp__logros strong { color: var(--plum); font-weight: 500; }
+
+/* ── Entidades: dos datos por fila ──────────────────────── */
+.institutions__grid li {
+  flex-direction: column; align-items: flex-start; gap: .2rem;
+}
+.institutions__grid li::before { display: none; }
+.ent__nombre { font-weight: 500; color: var(--ink); }
+.ent__ambito { font-size: .85rem; font-weight: 300; color: var(--text-soft); line-height: 1.45; }
+
+/* ── Formación: columna de año ──────────────────────────── */
+.education__list li { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: .1rem 1rem; }
+.education__list li strong { flex: 1 1 100%; }
+.education__anio {
+  margin-left: auto; font-style: normal;
+  font-size: .9rem; font-weight: 500; color: var(--plum);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Publicaciones ──────────────────────────────────────── */
+.pub {
+  padding: 1.6rem 0;
+  border-bottom: 1px solid rgba(109, 79, 161, .16);
+}
+.pub:last-of-type { border-bottom: 0; }
+.pub h3 { font-weight: 500; font-size: 1.12rem; color: var(--ink); margin-bottom: .4rem; }
+.pub p { font-size: .98rem; color: var(--text-soft); line-height: 1.65; }
+.pub p strong { color: var(--plum); font-weight: 500; }
+.pub__cita {
+  margin-top: 1rem; padding: 1rem 0 0 1.3rem;
+  border-left: 2px solid var(--gold);
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1.05rem; line-height: 1.5; color: var(--plum);
+}
+.pub__cita em { color: var(--ink); }
+
+/* ── Marco legal ────────────────────────────────────────── */
+.legal { background: linear-gradient(180deg, var(--cream), var(--lavender-soft) 140%); }
+.legal__texto { font-size: 1.02rem; color: var(--text-soft); line-height: 1.7; margin-bottom: 1.4rem; }
+.legal__texto strong { color: var(--plum); font-weight: 500; }
+.legal__aviso {
+  padding: 1.3rem 1.5rem;
+  background: var(--white);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  font-size: .98rem; color: var(--text); line-height: 1.65;
+}
+.legal__aviso strong { color: var(--plum); font-weight: 500; }
+
+/* ── Referencias ────────────────────────────────────────── */
+.refs { padding-bottom: clamp(3rem, 6vw, 5rem); }
+.refs__linea { font-size: 1.02rem; color: var(--text-soft); }
+
+/* ── Portafolio de servicios ────────────────────────────── */
+.services__lista { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+.services__lista li {
+  display: flex; flex-direction: column; gap: .4rem;
+  padding: 1.6rem 1.6rem;
+  background: var(--white);
+  border: 1px solid rgba(109, 79, 161, .1);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.services__lista li:hover {
+  transform: translateY(-5px); border-left-color: var(--plum);
+  box-shadow: 0 24px 46px -24px rgba(46, 28, 80, .35);
+}
+.services__lista strong { font-weight: 500; font-size: 1.06rem; color: var(--ink); }
+.services__lista span { font-size: .93rem; color: var(--text-soft); line-height: 1.6; }
+
+.incluye {
+  margin-top: 1.6rem; padding: 2rem 2rem;
+  background: linear-gradient(150deg, var(--lavender-soft), var(--rose));
+  border: 1px solid rgba(109, 79, 161, .16);
+  border-radius: var(--radius);
+}
+.incluye__titulo {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 1.35rem; color: var(--ink); margin-bottom: 1rem;
+}
+.incluye__lista { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem 2rem; }
+.incluye__lista li {
+  position: relative; padding-left: 1.4rem;
+  font-size: .96rem; color: var(--text); line-height: 1.6;
+}
+.incluye__lista li::before {
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--plum);
+}
+.incluye__lista strong { color: var(--plum); font-weight: 500; }
+.services__cierre { margin-top: 2rem; font-size: 1.02rem; color: var(--text-soft); }
+.services__cierre a { color: var(--plum); font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(201, 164, 92, .6); }
+
+/* ── Respaldo de cada afirmación ────────────────────────── */
+.respaldo {
+  margin-top: .5rem;
+  font-size: .82rem; letter-spacing: .02em;
+  color: var(--text-soft); opacity: .95;
+}
+.honor-card .respaldo { color: rgba(250, 247, 242, .6); }
+.caso--destacado .respaldo { color: rgba(250, 247, 242, .6); }
+
+/* ── Barra de herramientas: filtro + descarga ───────────── */
+.utiles { padding-top: 0; }
+
+.capa {
+  padding: 1.8rem 1.9rem;
+  background: var(--white);
+  border: 1px solid rgba(109, 79, 161, .14);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 40px -26px rgba(46, 28, 80, .25);
+}
+.capa__rotulo {
+  font-size: .76rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--plum); font-weight: 500; margin-bottom: 1rem;
+}
+.capa__botones { display: flex; flex-wrap: wrap; gap: .6rem; }
+.capa__boton {
+  padding: .55rem 1.2rem;
+  font-family: var(--font-body); font-size: .88rem;
+  color: var(--plum); cursor: pointer;
+  background: var(--lavender-soft);
+  border: 1px solid rgba(109, 79, 161, .18);
+  border-radius: 100px;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+}
+.capa__boton:hover { transform: translateY(-2px); border-color: var(--gold); }
+.capa__boton[aria-pressed="true"] {
+  background: var(--plum); color: var(--cream);
+  border-color: var(--gold); border-width: 2px;
+  font-weight: 500;
+}
+.capa__limpiar {
+  padding: .55rem 1.1rem;
+  font-family: var(--font-body); font-size: .84rem;
+  color: var(--text-soft); cursor: pointer;
+  background: transparent; border: 0;
+  border-bottom: 1px solid rgba(109, 79, 161, .35);
+}
+.capa__limpiar:hover { color: var(--plum); }
+.capa__nota { margin-top: .9rem; font-size: .84rem; color: var(--text-soft); line-height: 1.55; }
+
+.descarga {
+  margin-top: 1.2rem; padding: 1.8rem 1.9rem;
+  background: linear-gradient(150deg, var(--ink), var(--ink-soft));
+  border: 1px solid rgba(201, 164, 92, .35);
+  border-radius: var(--radius);
+  color: var(--cream);
+}
+.descarga__acciones { display: flex; flex-wrap: wrap; gap: .9rem; }
+.descarga__acciones .btn { border: 0; cursor: pointer; font-family: var(--font-body); }
+.btn--ghost-dark {
+  color: var(--cream);
+  border: 1px solid rgba(250, 247, 242, .4) !important;
+  background: rgba(250, 247, 242, .05);
+}
+.btn--ghost-dark:hover:not(:disabled) { background: rgba(250, 247, 242, .13); border-color: var(--gold) !important; }
+.btn--ghost-dark:disabled { opacity: .4; cursor: default; transform: none !important; }
+.btn--ghost-dark:disabled::after { display: none; }
+
+.descarga__casilla {
+  display: flex; align-items: center; gap: .6rem;
+  margin-top: 1.2rem; font-size: .92rem; color: rgba(250, 247, 242, .85);
+  cursor: pointer;
+}
+.descarga__casilla input { width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer; }
+
+.descarga__ayuda { margin-top: 1.1rem; font-size: .92rem; }
+.descarga__ayuda summary {
+  cursor: pointer; color: var(--gold-soft);
+  padding: .3rem 0; width: fit-content;
+}
+.descarga__ayuda summary:hover { color: var(--gold); }
+.descarga__ayuda p, .descarga__ayuda li { color: rgba(250, 247, 242, .78); line-height: 1.6; }
+.descarga__ayuda ul { list-style: none; margin: .6rem 0; display: grid; gap: .35rem; }
+.descarga__ayuda li { padding-left: 1.1rem; position: relative; }
+.descarga__ayuda li::before { content: "·"; position: absolute; left: .2rem; color: var(--gold); }
+.descarga__ayuda strong { color: var(--cream); font-weight: 500; }
+.descarga__ayuda-nota { margin-top: .6rem; font-size: .84rem; opacity: .75; }
+
+/* ── Filtro: atenuar, nunca ocultar ─────────────────────── */
+.is-atenuado { opacity: .3; filter: grayscale(1); transition: opacity .3s ease, filter .3s ease; }
+.aviso-vacio {
+  margin-top: 1rem; padding: .9rem 1.2rem;
+  border: 1px dashed rgba(109, 79, 161, .35); border-radius: 10px;
+  font-size: .9rem; color: var(--text-soft);
+}
+.section__eyebrow--light ~ .aviso-vacio,
+.honors .aviso-vacio { color: rgba(250, 247, 242, .7); border-color: rgba(185, 167, 230, .35); }
+
+/* ── Modo revisión: solo para Sebastián (?revision=1) ───── */
+.pendiente { display: none; }
+body.modo-revision .pendiente {
+  display: block;
+  margin-top: .7rem; padding: .7rem .9rem;
+  background: #fff8e6;
+  border: 1px dashed #c99a2c;
+  border-radius: 8px;
+  font-size: .85rem; color: #7a5a10; line-height: 1.5;
+}
+body.modo-revision .pendiente::before { content: "FALTA: "; font-weight: 600; }
+body.modo-revision .pendiente::after { content: attr(data-pide); }
+body.modo-revision .ident__datos .pendiente { grid-column: 1 / -1; }
+
+/* ── Bloques que existen solo en el PDF ─────────────────── */
+.print-cabecera, .print-firma, .print-pie, .sello-enfoque { display: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   IMPRESIÓN · el PDF formal
+   Tamaño Carta porque el documento se radica en Colombia.
+   ═══════════════════════════════════════════════════════════ */
+@media print {
+
+  @page { size: Letter; margin: 14mm 16mm 20mm 16mm; }
+
+  /* --- Lo primero y más importante: que nada salga en blanco --- */
+  .reveal, html.js .reveal {
+    opacity: 1 !important; transform: none !important;
+    animation: none !important; transition: none !important;
+  }
+  *, *::before, *::after {
+    animation: none !important; transition: none !important;
+    box-shadow: none !important; text-shadow: none !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html, body {
+    background: #fff !important; color: #221833 !important;
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+    font-size: 10.5pt; line-height: 1.35;
+    overflow: visible !important;
+  }
+
+  /* --- Cromo de pantalla: fuera --- */
+  .nav, .riel, .hero, .utiles, .capa, .descarga, .closing,
+  .footer, .hero__scroll, .pista__ctrl, .aviso-vacio,
+  .pendiente, .impact,
+  .hero__glow, .summit__glow, .honors__glow, .closing__glow { display: none !important; }
+  .btn { display: none !important; }
+
+  /* --- Secciones: sin fondos, sin bordes redondeados --- */
+  .section { padding: 0 0 6mm !important; }
+  section, .container, .container--narrow { width: 100% !important; max-width: none !important; }
+  .casos, .linea, .metodo, .honors, .institutions, .legal, .model, .timeline {
+    background: #fff !important; color: #221833 !important;
+  }
+
+  /* --- Encabezados de sección --- */
+  .folio-seccion { break-inside: auto; }
+  .section__eyebrow, .section__eyebrow--light {
+    display: block !important; color: #221833 !important;
+    font-size: 8.5pt; letter-spacing: .16em; font-weight: 600;
+    margin: 0 0 1.5mm; padding-bottom: 1mm;
+    border-bottom: .6pt solid #221833;
+    break-after: avoid;
+  }
+  .section__eyebrow::before { display: none !important; }
+  .folio::before {
+    color: #8a6d24 !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .seccion__n { display: none !important; }
+
+  .section__title, .section__title--light, .voice__statement {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 13pt !important; line-height: 1.25;
+    color: #221833 !important; max-width: none;
+    margin: 0 0 2.5mm !important;
+    break-after: avoid;
+  }
+  .section__title em, .voice__statement em { color: #4a3470 !important; }
+  h3 { font-family: "Fraunces", Georgia, serif; font-size: 11pt; break-after: avoid; }
+
+  /* --- F-01 cabecera formal del documento --- */
+  .print-cabecera {
+    display: grid !important;
+    grid-template-columns: 1fr 35mm; gap: 6mm;
+    align-items: start;
+    padding-bottom: 4mm; margin-bottom: 4mm;
+    border-bottom: 1pt solid #221833;
+  }
+  .print-cabecera__foto {
+    grid-column: 2; width: 35mm; height: 35mm;
+    object-fit: cover; filter: grayscale(1);
+    border: .5pt solid #221833;
+  }
+  .print-cabecera__texto { grid-column: 1; grid-row: 1; }
+  .print-cabecera__nombre {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 20pt; line-height: 1.1; font-weight: 500;
+  }
+  .print-cabecera__roles { font-size: 10pt; margin-top: 1.5mm; }
+  .print-cabecera__lema { font-size: 9pt; font-style: italic; margin-top: 1mm; }
+  .ident .section__eyebrow { display: none !important; }
+
+  .ident__datos { display: grid !important; grid-template-columns: 1fr 1fr; gap: 0 8mm; }
+  .ident__fila {
+    grid-template-columns: 32mm 1fr; gap: 3mm;
+    padding: 1.2mm 0; border-bottom: .3pt dotted #9a93a8;
+    break-inside: avoid;
+  }
+  .ident__fila dt { font-size: 8pt; letter-spacing: .08em; color: #221833 !important; }
+  .ident__fila dd { font-size: 9.5pt; }
+  .ident__fila dd a { color: #221833 !important; border: 0 !important; text-decoration: none !important; }
+  .ident__para { display: block !important; background: none !important; border-left: 2pt solid #8a6d24; padding: 1mm 0 1mm 3mm; font-size: 9.5pt; color: #221833 !important; margin-bottom: 3mm; }
+
+  /* --- Perfil --- */
+  .voice { text-align: left !important; }
+  .voice__text { max-width: none; color: #221833 !important; font-size: 10.5pt; margin-bottom: 2mm; }
+  .voice__pillars { display: block !important; margin-top: 2mm; }
+  .voice__pillars span {
+    display: inline; padding: 0; background: none !important;
+    border: 0 !important; color: #221833 !important; font-size: 9.5pt;
+  }
+  .voice__pillars span::after { content: " · "; }
+  .voice__pillars span:last-child::after { content: ""; }
+
+  /* --- PISTAS: en papel se vuelven listas verticales --- */
+  .pista__viewport {
+    overflow: visible !important; padding: 0 !important; margin: 0 !important;
+    scroll-snap-type: none !important;
+  }
+  .pista__rail {
+    display: block !important; padding: 0 !important;
+  }
+  .pista__item {
+    flex: none !important; display: block !important;
+    margin-bottom: 3mm; break-inside: avoid;
+  }
+
+  /* Casos */
+  .caso, .caso--destacado, .caso--vacio {
+    background: #fff !important; color: #221833 !important;
+    border: 0 !important; border-left: 1.5pt solid #8a6d24 !important;
+    border-radius: 0 !important; padding: 0 0 0 4mm !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .caso--vacio { display: none !important; }
+  .caso__etiqueta { font-size: 8pt; letter-spacing: .12em; color: #221833 !important; }
+  .caso__nombre { font-size: 12pt !important; color: #221833 !important; margin: .5mm 0; }
+  .caso__logro, .caso__texto { color: #221833 !important; font-size: 10pt; }
+  .caso__cita { color: #221833 !important; font-size: 9.5pt; border-top: .3pt solid #9a93a8; padding-top: 1.5mm; margin-top: 1.5mm; }
+  .caso--destacado .caso__etiqueta,
+  .caso--destacado .caso__nombre,
+  .caso--destacado .caso__logro,
+  .caso--destacado .caso__logro strong,
+  .caso--destacado .caso__texto,
+  .caso--destacado .caso__cita,
+  .caso--destacado .respaldo { color: #221833 !important; }
+
+  /* Hitos de trayectoria: año en columna fija */
+  .hito {
+    background: #fff !important; border: 0 !important;
+    border-left: .6pt solid #221833 !important; border-radius: 0 !important;
+    padding: 0 0 0 4mm !important;
+    display: grid !important; grid-template-columns: 16mm 1fr; gap: 3mm;
+  }
+  .hito__anio {
+    grid-column: 1; font-size: 11pt !important; color: #221833 !important;
+    font-style: normal; font-weight: 600;
+  }
+  .hito h3 { grid-column: 2; font-size: 10.5pt; margin: 0; }
+  .hito p { grid-column: 2; font-size: 9.5pt; color: #221833 !important; }
+
+  /* --- El método --- */
+  .metodo__lead, .metodo__cierre { color: #221833 !important; max-width: none; margin: 0 0 3mm; font-size: 10pt; }
+  .metodo__cierre { border-top: .4pt solid #221833; padding-top: 2mm; margin-top: 2mm; }
+  .metodo__cierre strong, .metodo-card__num { color: #221833 !important; }
+  .metodo__grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; }
+  .metodo-card {
+    background: #fff !important; border: 0 !important;
+    border-left: .6pt solid #221833 !important; border-radius: 0 !important;
+    padding: 0 0 0 3mm !important; break-inside: avoid;
+  }
+  .metodo-card h3 { color: #221833 !important; margin: 0 0 .8mm; font-size: 10pt; }
+  .metodo-card p { color: #221833 !important; font-size: 9.5pt; }
+
+  /* --- Experiencia --- */
+  .exp { break-inside: avoid; padding: 0 0 3mm; border-bottom: .3pt dotted #9a93a8; }
+  .exp__entidad { font-size: 11pt !important; }
+  .exp__rol { color: #221833 !important; font-size: 9.5pt; }
+  .exp__periodo { font-size: 9.5pt; color: #221833 !important; font-weight: 600; }
+  .exp__logros li { font-size: 9.5pt; color: #221833 !important; padding-left: 3.5mm; }
+  .exp__logros li::before { background: #221833 !important; width: 3px; height: 3px; top: .55em; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .exp__logros strong { color: #221833 !important; }
+  .exps__nota { color: #221833 !important; font-size: 9pt; margin: 0 0 2mm; }
+
+  /* --- Formación: tabla de dos columnas --- */
+  .education__grid { display: block !important; }
+  .education__list { columns: 2; column-gap: 8mm; }
+  .education__list li {
+    padding: 1.2mm 0 !important; border-bottom: .3pt dotted #9a93a8;
+    break-inside: avoid; display: block !important;
+  }
+  .education__list li::before { display: none !important; }
+  .education__list strong { font-size: 9.5pt; color: #221833 !important; display: block; }
+  .education__list span { font-size: 9pt; color: #221833 !important; display: block; }
+  .education__anio { font-size: 9pt; color: #221833 !important; font-weight: 600; }
+  .education__books { display: none !important; }
+
+  /* --- Reconocimientos --- */
+  .honors__grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; }
+  .honor-card {
+    background: #fff !important; border: 0 !important;
+    border-left: .6pt solid #8a6d24 !important; border-radius: 0 !important;
+    padding: 0 0 0 3mm !important; break-inside: avoid;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .honor-card__num { color: #8a6d24 !important; font-size: 8.5pt; font-style: normal; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .honor-card h3 { color: #221833 !important; margin: .3mm 0 .6mm; font-size: 10pt; }
+  .honor-card p, .honor-card .respaldo { color: #221833 !important; font-size: 9.5pt; }
+
+  /* --- Entidades --- */
+  .institutions__lead { color: #221833 !important; margin: 0 0 2mm; font-size: 10pt; max-width: none; }
+  .institutions__grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 1.5mm 6mm; margin: 0; }
+  .institutions__grid li {
+    background: #fff !important; border: 0 !important; border-radius: 0 !important;
+    padding: 1mm 0 !important; border-bottom: .3pt dotted #9a93a8 !important;
+    break-inside: avoid;
+  }
+  .ent__nombre { font-size: 9.5pt; color: #221833 !important; }
+  .ent__ambito { font-size: 8.5pt; color: #221833 !important; }
+  .institutions__feature { display: none !important; }
+
+  /* --- Áreas de entrenamiento --- */
+  .areas__grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 2mm 6mm; }
+  .area-card {
+    background: #fff !important; border: 0 !important; border-radius: 0 !important;
+    padding: 0 !important; border-bottom: .3pt dotted #9a93a8 !important;
+    padding-bottom: 1.5mm !important; break-inside: avoid;
+  }
+  .area-card__icon { display: none !important; }
+  .area-card h3 { font-size: 10pt; margin: 0 0 .5mm; color: #221833 !important; }
+  .area-card p { font-size: 9.5pt; color: #221833 !important; }
+  .areas__rotulo { font-size: 8.5pt; margin-top: 2mm; color: #221833 !important; }
+
+  /* --- Publicaciones --- */
+  .pub { break-inside: avoid; padding: 0 0 2.5mm; border-bottom: .3pt dotted #9a93a8; }
+  .pub h3 { font-size: 10.5pt; margin-bottom: .6mm; }
+  .pub p { font-size: 9.5pt; color: #221833 !important; }
+  .pub p strong { color: #221833 !important; }
+  .pub__cita {
+    font-size: 9.5pt; color: #221833 !important;
+    border-left: 1pt solid #8a6d24; padding: 0 0 0 3mm; margin-top: 1.5mm;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .pub__cita em { color: #221833 !important; }
+
+  /* --- Marco legal --- */
+  .legal__texto, .legal__aviso {
+    color: #221833 !important; font-size: 9.5pt;
+    background: none !important; border-radius: 0 !important;
+    padding: 0 !important; margin-bottom: 2mm;
+  }
+  .legal__aviso {
+    border-left: 1.5pt solid #221833 !important; padding: 1mm 0 1mm 3mm !important;
+  }
+  .legal__texto strong, .legal__aviso strong { color: #221833 !important; }
+
+  /* --- Referencias --- */
+  .refs__linea { font-size: 9.5pt; color: #221833 !important; }
+  .refs { break-inside: avoid; }
+
+  /* --- Portafolio de servicios: hoja aparte --- */
+  .anexo-servicios { break-before: page; }
+  .services__lead, .services__cierre { color: #221833 !important; font-size: 10pt; max-width: none; margin: 0 0 2.5mm; }
+  .services__cierre a { color: #221833 !important; border: 0 !important; }
+  .services__lista { display: grid !important; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; }
+  .services__lista li {
+    background: #fff !important; border: 0 !important; border-radius: 0 !important;
+    border-left: .6pt solid #8a6d24 !important;
+    padding: 0 0 0 3mm !important; break-inside: avoid;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .services__lista strong { font-size: 10pt; color: #221833 !important; }
+  .services__lista span { font-size: 9.5pt; color: #221833 !important; }
+  .services__grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .service-card { background: #fff !important; border: 0 !important; border-left: .6pt solid #221833 !important; border-radius: 0 !important; padding: 0 0 0 3mm !important; break-inside: avoid; }
+
+  .incluye {
+    background: none !important; border: 0 !important; border-radius: 0 !important;
+    border-top: .6pt solid #221833 !important;
+    padding: 2mm 0 0 !important; margin-top: 3mm;
+    break-inside: avoid;
+  }
+  .incluye__titulo { font-size: 10.5pt; margin-bottom: 1.5mm; }
+  .incluye__lista { display: grid !important; grid-template-columns: 1fr 1fr; gap: 1mm 6mm; }
+  .incluye__lista li { font-size: 9.5pt; color: #221833 !important; padding-left: 3mm; }
+  .incluye__lista li::before { background: #221833 !important; width: 3px; height: 3px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .incluye__lista strong { color: #221833 !important; }
+
+  /* --- Cierre formal con firma --- */
+  .print-firma {
+    display: block !important;
+    break-inside: avoid; margin-top: 8mm;
+    padding-top: 3mm; border-top: .6pt solid #221833;
+  }
+  .print-firma__declaracion { font-size: 9.5pt; }
+  .print-firma__ciudad { font-size: 9.5pt; margin-top: 5mm; }
+  .print-firma__linea { width: 60mm; border-bottom: .5pt solid #221833; margin-top: 14mm; }
+  .print-firma__rotulo { font-size: 9pt; margin-top: 1.5mm; font-weight: 600; }
+  .print-firma__url { font-size: 8.5pt; margin-top: 4mm; }
+
+  /* --- Pie repetido en cada hoja (Chromium) --- */
+  .print-pie {
+    display: block !important;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    font-size: 8pt; padding-top: 1.5mm;
+    border-top: .4pt solid #221833;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  /* --- Sello de la versión enfocada --- */
+  .sello-enfoque { display: none !important; }
+  body.print-enfocado .sello-enfoque {
+    display: block !important;
+    margin: 0 0 4mm; padding: 1.5mm 3mm;
+    border: .6pt solid #221833; font-size: 9pt;
+  }
+  body.print-enfocado .is-atenuado { display: none !important; }
+
+  /* --- Portafolio suelto: solo el anexo, en una hoja --- */
+  body.print-portafolio > main > section:not(.anexo-servicios),
+  body.print-portafolio > main > .print-firma,
+  body.print-portafolio .print-cabecera { display: none !important; }
+  body.print-portafolio .anexo-servicios { break-before: auto !important; }
+  body.print-portafolio .porta-cabecera { display: block !important; }
+
+  /* --- Excluir el portafolio de la hoja de vida si se desmarcó --- */
+  body.sin-anexo .anexo-servicios { display: none !important; }
+
+  /* --- Reglas de corte de página --- */
+  h2, h3 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  table { break-inside: auto; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  img { filter: grayscale(1); }
+}
+
+/* ── Responsive de los componentes nuevos ───────────────── */
+@media (max-width: 980px) {
+  .metodo__grid { grid-template-columns: repeat(2, 1fr); }
+  .services__lista, .incluye__lista { grid-template-columns: 1fr; }
+  .ident__datos { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .metodo__grid { grid-template-columns: 1fr; }
+  .ident__fila { grid-template-columns: 1fr; gap: .15rem; padding: .7rem 0; }
+
+  /* En celular ningún texto baja de ~13 px: por debajo de eso no se lee
+     con el teléfono en la mano. */
+  .ident__fila dt,
+  .caso__etiqueta,
+  .capa__rotulo,
+  .hero__badge span,
+  .library__highlight-eyebrow { font-size: .83rem; }
+  .respaldo, .areas__rotulo, .descarga__ayuda-nota { font-size: .85rem; }
+  .exp__meta { flex-direction: column; align-items: flex-start; }
+  .exp__periodo { margin-left: 0; }
+  .capa, .descarga { padding: 1.3rem 1.2rem; }
+  .descarga__acciones { flex-direction: column; }
+  .descarga__acciones .btn { width: 100%; text-align: center; }
+  .incluye { padding: 1.4rem 1.3rem; }
+  .caso, .hito { padding: 1.5rem 1.3rem; }
+  .education__list li { flex-direction: column; align-items: flex-start; }
+  .education__anio { margin-left: 0; }
+}
+
+/* En pantallas muy angostas nada debe desbordar de lado */
+@media (max-width: 360px) {
+  .pista__item { flex-basis: 88vw; }
+  .container, .container--narrow { width: 94%; }
 }
