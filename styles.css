@@ -1807,3 +1807,20 @@ body.modo-revision .ident__datos .pendiente { grid-column: 1 / -1; }
   .banda-deporte,
   .publicos-web { display: none !important; }
 }
+
+/* ── Enlace dentro de una ficha de reconocimiento (fondo oscuro) ── */
+.honor-card__enlace {
+  color: var(--gold-soft); text-decoration: underline;
+  text-underline-offset: 3px; text-decoration-thickness: 1px;
+  font-weight: 600;
+}
+.honor-card__enlace:hover { color: #fff; }
+
+@media print {
+  /* En papel el enlace no se puede tocar: se imprime la direccion. */
+  .honor-card__enlace { color: #221833 !important; text-decoration: none; }
+  .honor-card__enlace::after {
+    content: " (mininterior.gov.co/noticias/conozca-la-edicion-3-y-4-de-la-revista-defensoras/)";
+    font-weight: 400; word-break: break-all;
+  }
+}
