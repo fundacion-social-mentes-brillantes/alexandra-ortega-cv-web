@@ -29,7 +29,7 @@ En el cuadro de impresión: **Destino** Guardar como PDF · **Tamaño** Carta ·
 
 ## Direcciones especiales
 
-- `?revision=1` → **modo revisión de Sebastián.** Pinta en amarillo los 10 datos que faltan, con el detalle exacto de cada uno. Nunca se imprime.
+- `?revision=1` → **modo revisión de Sebastián.** Pinta en amarillo los 11 datos que faltan, con el detalle exacto de cada uno. Nunca se imprime.
 - `?para=Nombre%20de%20la%20entidad` → escribe «Preparado para: …» en la identificación. Sin el parámetro la línea no se dibuja.
 
 ## Cómo agregarle cosas
@@ -56,6 +56,15 @@ Abra `?revision=1` para verlos todos, marcados en amarillo sobre el propio docum
 Sigue pendiente y conviene resolverlo:
 
 - **Tarjeta profesional de psicología** (Ley 1090 de 2006). Es lo primero que revisa un área jurídica en una contratación pública. No hay ninguna casilla vacía en el documento —una casilla en blanco ahí hunde la hoja de vida— pero cuando llegue el número entra como una fila más de `F-01`.
-- Ciudad de residencia · universidad y año de grado de Psicología · institución y año del coach ontológico · año de la Gala de Control Social · títulos de los tres libros · años y objeto de Fundación Resolver · dos referencias · años y torneo exacto del caso de Kevin Jiménez · los demás casos de éxito.
+- Ciudad de residencia · universidad y año de grado de Psicología · institución y año del coach ontológico · año de la Gala de Control Social · títulos de los tres libros · años y objeto de Fundación Resolver · dos referencias · años y torneo exacto del caso de Kevin Jiménez · los demás casos de éxito · **experiencia deportiva formal** (club, escuela, liga o colegio con proceso ya ejecutado).
+
+## Por qué la experiencia se lee en clave deportiva
+
+La sección `#experiencia` reencuadra logros **reales** mostrando la competencia transferible al
+deporte (carácter, manejo de la derrota, cohesión de equipo, interlocución con cuerpos técnicos y
+familias, formación de formadores). **No se inventó ni un hecho:** no hay ningún club, liga,
+federación ni entidad deportiva como empleador, porque no existe ninguno documentado, y el caso de
+Kevin Jiménez va sin fechas, sin torneo y sin categoría porque esos datos aún no constan. Si algún
+día hay un proceso deportivo con entidad y periodo, se abre su propio `<article class="exp">`.
 
 La cédula **52.377.161 está publicada** en el documento por decisión expresa de Sebastián. Queda en una URL pública e indexable por buscadores.

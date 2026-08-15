@@ -1665,3 +1665,145 @@ body.modo-revision .ident__datos .pendiente { grid-column: 1 / -1; }
   .pista__item { flex-basis: 88vw; }
   .container, .container--narrow { width: 94%; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   F-15 · CAPA DEPORTIVA (agregada 2026-08-15)
+   Ilustraciones de silueta luminosa: el deportista en ciruela con
+   la mente encendida. Son decorativas: NINGUNA se imprime, para no
+   alterar el PDF de la hoja de vida.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── La atleta del hero: entra por la derecha, detrás del retrato ── */
+.hero__atleta {
+  position: absolute;
+  right: -4%; bottom: -14%;
+  width: min(56%, 720px);
+  z-index: 0; pointer-events: none;
+  opacity: 0;
+  animation: atletaEntra 1.9s .3s cubic-bezier(.22, .8, .3, 1) forwards;
+  /* Atmosfera, no segundo protagonista: grande, tenue y desvanecida en
+     redondo. Sin este desvanecido la imagen se lee como un rectangulo
+     pegado encima del degradado. */
+  -webkit-mask-image: radial-gradient(closest-side at 50% 48%, #000 38%, rgba(0,0,0,.5) 70%, transparent 96%);
+          mask-image: radial-gradient(closest-side at 50% 48%, #000 38%, rgba(0,0,0,.5) 70%, transparent 96%);
+}
+.hero__atleta img {
+  width: 100%; height: auto; display: block;
+  mix-blend-mode: screen;
+}
+@keyframes atletaEntra {
+  from { opacity: 0; transform: translate3d(4%, 3%, 0) scale(1.04); }
+  to   { opacity: .38; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__atleta { animation: none; opacity: .38; }
+}
+
+/* ── Tira de disciplinas ── */
+.disciplinas {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; margin: 0 0 2.2rem;
+}
+.disciplinas figure {
+  margin: 0; position: relative; overflow: hidden;
+  border-radius: 16px; background: var(--ink);
+  box-shadow: 0 16px 40px -26px rgba(46, 28, 80, .6);
+}
+.disciplinas img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+  transition: transform .6s var(--transition, ease);
+}
+.disciplinas figure:hover img { transform: scale(1.06); }
+.disciplinas figcaption {
+  position: absolute; inset: auto 0 0 0;
+  padding: 2.4rem .9rem .8rem;
+  font-size: .82rem; font-weight: 600; color: #fff; letter-spacing: .04em;
+  background: linear-gradient(to top, rgba(34, 24, 51, .9), transparent);
+}
+.disciplinas__lead {
+  margin: 0 0 1rem; color: var(--text-soft); font-size: 1rem;
+}
+
+/* ── Imagen dentro de la ficha destacada de casos ── */
+.caso__figura {
+  margin: 0 0 1.2rem; border-radius: 14px; overflow: hidden;
+  background: var(--ink-soft);
+}
+.caso__figura img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;
+}
+
+/* ── Banda cinemática a ancho completo ── */
+.banda-deporte {
+  position: relative; margin: 0; padding: clamp(3.5rem, 9vw, 7rem) 0;
+  background: linear-gradient(160deg, var(--ink), #150f22);
+  overflow: hidden;
+}
+.banda-deporte__arte {
+  position: absolute; inset: 0; z-index: 0;
+}
+.banda-deporte__arte img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 38%;
+  opacity: .5;
+}
+.banda-deporte__velo {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(100deg, rgba(34, 24, 51, .96) 0%, rgba(34, 24, 51, .8) 42%, rgba(34, 24, 51, .25) 78%);
+}
+.banda-deporte .container { position: relative; z-index: 2; }
+.banda-deporte__eyebrow {
+  font-size: .78rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; margin: 0 0 1.4rem;
+}
+.banda-deporte__frase {
+  font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(1.6rem, 3.6vw, 2.9rem); line-height: 1.22;
+  color: #fff; margin: 0; max-width: 20ch;
+}
+.banda-deporte__frase em { font-style: italic; color: var(--gold-soft); }
+.banda-deporte__pie {
+  margin: 1.8rem 0 0; color: rgba(233, 225, 244, .78);
+  font-size: 1.02rem; max-width: 46ch;
+}
+
+/* ── Trío de públicos en el portafolio de servicios ── */
+.publicos-web {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem; margin: 2rem 0 0;
+}
+.publico-web {
+  border-radius: 18px; overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(109, 79, 161, .14);
+}
+.publico-web img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;
+}
+.publico-web div { padding: 1.1rem 1.2rem 1.3rem; }
+.publico-web h4 {
+  margin: 0 0 .5rem; font-size: .82rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--plum); font-weight: 700;
+}
+.publico-web p { margin: 0; font-size: .95rem; color: var(--text-soft); line-height: 1.55; }
+
+/* ── Responsive ── */
+@media (max-width: 980px) {
+  .disciplinas { grid-template-columns: repeat(2, 1fr); }
+  .publicos-web { grid-template-columns: 1fr; }
+  .hero__atleta { width: 86%; right: -20%; }
+}
+@media (max-width: 700px) {
+  .hero__atleta { display: none; }
+  .disciplinas { gap: .7rem; }
+}
+
+/* ── NADA de esto se imprime ── */
+@media print {
+  .hero__atleta,
+  .disciplinas,
+  .disciplinas__lead,
+  .caso__figura,
+  .banda-deporte,
+  .publicos-web { display: none !important; }
+}

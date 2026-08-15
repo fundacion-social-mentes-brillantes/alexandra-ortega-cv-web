@@ -49,6 +49,9 @@
     <section class="hero" id="inicio">
       <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+      <div class="hero__atleta" aria-hidden="true">
+        <img src="assets/atleta-hero.webp" alt="" width="900" height="1200" fetchpriority="high">
+      </div>
       <div class="hero__inner">
         <div class="hero__content">
           <p class="hero__eyebrow"><span class="line"></span>Hoja de vida · Coach deportivo mental</p>
@@ -155,6 +158,20 @@
       </div>
     </section>
 
+    <!-- ╭─────────── BANDA CINEMÁTICA · DEPORTE ───────────╮
+         Decorativa: no se imprime (ver F-15 en styles.css). -->
+    <section class="banda-deporte" aria-label="El entrenamiento emocional en el deporte">
+      <div class="banda-deporte__arte" aria-hidden="true">
+        <img src="assets/equipo-circulo.webp" alt="" width="1200" height="800" loading="lazy">
+      </div>
+      <div class="banda-deporte__velo" aria-hidden="true"></div>
+      <div class="container">
+        <p class="banda-deporte__eyebrow">Entrenamiento emocional para el deporte</p>
+        <p class="banda-deporte__frase">Entrenar el cuerpo desarrolla al deportista. <em>Entrenar su mente y sus emociones puede transformar la manera en que compite, pierde, gana y se supera.</em></p>
+        <p class="banda-deporte__pie">El entrenamiento físico prepara el cuerpo. El técnico desarrolla las habilidades deportivas. El emocional prepara a la persona que debe responder cuando llega el momento de competir.</p>
+      </div>
+    </section>
+
     <!-- ╭─────────── SÍNTESIS EN CIFRAS ───────────╮ -->
     <section class="impact section" aria-label="Síntesis en cifras">
       <div class="container">
@@ -236,13 +253,17 @@
             <ol class="pista__rail">
 
               <li class="pista__item caso caso--destacado" data-areas="deportivo caracter territorio">
+                <figure class="caso__figura" aria-hidden="true">
+                  <img src="assets/entrenadora.webp" alt="" width="1024" height="1024" loading="lazy">
+                </figure>
                 <p class="caso__etiqueta">Caso destacado · Deporte de alto nivel</p>
                 <h3 class="caso__nombre">Kevin Jiménez</h3>
-                <p class="caso__logro">Futbolista de <strong>futsal</strong>, seleccionado para representar a la <strong>Selección Colombia</strong>.</p>
-                <p class="caso__texto">Salido de las calles del barrio. Un talento que existía desde el principio y que necesitaba una cabeza entrenada para sostenerse: foco, disciplina, manejo de la presión y un proyecto de vida que no dependiera solo del resultado del partido.</p>
+                <p class="caso__logro">Futbolista de <strong>futsal</strong>. Hoy es miembro de un <strong>importante equipo de Brasil</strong> y en <strong>2024</strong> fue seleccionado por la <strong>Selección Colombia de Futsal</strong>.</p>
+                <p class="caso__texto">Salido de las calles del barrio. Un talento que existía desde el principio y que necesitaba una cabeza entrenada para sostenerse: foco, disciplina, manejo de la presión y un proyecto de vida que no dependiera solo del resultado del partido. Potenciado desde el acompañamiento de Alexandra y la metodología de Gimnasio Emocional Mentes Brillantes.</p>
                 <p class="caso__cita">«El talento estaba. Lo que había que entrenar era la mente que lo sostiene.»</p>
-                <!-- Autorización de Kevin confirmada por Sebastián el 2026-08-05. -->
-                <span class="pendiente" data-pide="CASO KEVIN JIMÉNEZ (permiso ya confirmado): faltan los años del proceso y el nombre exacto del seleccionado o torneo, para poder citarlo con precisión"></span>
+                <!-- Autorización de Kevin confirmada por Sebastián el 2026-08-05.
+                     Datos de Brasil y Selección 2024 confirmados por Sebastián el 2026-08-15. -->
+                <span class="pendiente" data-pide="CASO KEVIN JIMÉNEZ (permiso ya confirmado): falta el nombre del equipo de Brasil y los años del proceso con Alexandra, para poder citarlo con precisión"></span>
               </li>
 
               <li class="pista__item caso" data-areas="genero empoderamiento territorio">
@@ -321,6 +342,13 @@
       <div class="container">
         <p class="section__eyebrow"><span class="folio"></span>Áreas de entrenamiento<span class="seccion__n" aria-live="polite"></span></p>
         <h2 class="section__title reveal">Los <em>músculos invisibles</em> que se entrenan</h2>
+        <p class="disciplinas__lead reveal">La herramienta no cambia con el deporte: cambia el escenario donde se pone a prueba. El miedo antes de competir, el error en público, la banca y la derrota son los mismos en una cancha, una pista o un tatami.</p>
+        <div class="disciplinas reveal" aria-hidden="true">
+          <figure><img src="assets/voleibol.webp" alt="" width="1024" height="1024" loading="lazy"><figcaption>Voleibol</figcaption></figure>
+          <figure><img src="assets/futsal.webp" alt="" width="1024" height="1024" loading="lazy"><figcaption>Futsal y fútbol</figcaption></figure>
+          <figure><img src="assets/atletismo.webp" alt="" width="1024" height="1024" loading="lazy"><figcaption>Atletismo</figcaption></figure>
+          <figure><img src="assets/baloncesto.webp" alt="" width="1024" height="1024" loading="lazy"><figcaption>Baloncesto</figcaption></figure>
+        </div>
         <div class="areas__grid">
           <article class="area-card reveal" data-areas="deportivo caracter">
             <h3>Manejo de la presión</h3>
@@ -378,6 +406,7 @@
       <div class="container">
         <p class="section__eyebrow"><span class="folio"></span>Experiencia profesional</p>
         <h2 class="section__title reveal">Trayectoria <em>verificable</em></h2>
+        <p class="exps__nota reveal">Toda esta trayectoria es la misma técnica —entrenar la mente como se entrena el cuerpo— aplicada en escenarios distintos; el entrenamiento mental deportivo es su aplicación al rendimiento. El proceso con deportistas documentado hasta hoy es el de Kevin Jiménez, en la sección de casos de éxito. Esta sección no registra vinculación laboral con clubes, ligas ni federaciones.</p>
 
         <article class="exp reveal">
           <header class="exp__cab">
@@ -385,12 +414,15 @@
             <p class="exp__meta"><span class="exp__rol">Fundadora de la técnica · Entrenadora y coach</span><span class="exp__periodo">2016 — a la fecha</span></p>
           </header>
           <ul class="exp__logros">
-            <li>Creación y dirección metodológica de la técnica GEMB: educación emocional, psicoeducación, alfabetización emocional y prevención en salud mental.</li>
-            <li>Relacionista pública de la organización entre <strong>2016 y 2023</strong>: articulación de organizaciones, profesionales y ciudadanas con la institucionalidad.</li>
-            <li>Más de 176 personas formadas como replicadoras del método con la estrategia «Formar Formadoras».</li>
+            <li>Creación y dirección metodológica de la técnica GEMB: <strong>entrenar la mente como se entrena el cuerpo</strong> —educación emocional, psicoeducación, alfabetización emocional y prevención en salud mental—, con diez años de aplicación continua.</li>
+            <li>Acompañamiento del futbolista de futsal <strong>Kevin Jiménez</strong>, seleccionado para representar a la <strong>Selección Colombia</strong>: foco, disciplina, manejo de la presión y un proyecto de vida que no dependiera solo del resultado del partido.</li>
+            <li>Procesos individuales, grupales, presenciales, virtuales y comunitarios, sostenidos <strong>con continuidad en el tiempo</strong>: estructura de plan de entrenamiento, no de charla suelta. Espacios gratuitos financiados por subsidios cruzados.</li>
+            <li>Más de <strong>176 personas formadas como replicadoras</strong> del método con la estrategia «Formar Formadoras»: formación de formadores, competencia aplicable a preparar entrenadores, docentes y adultos a cargo de un grupo.</li>
+            <li>Relacionista pública de la organización entre <strong>2016 y 2023</strong>: articulación de organizaciones, profesionales y ciudadanas con la institucionalidad —hablar el idioma de cada actor y sostener el acuerdo en el tiempo.</li>
             <li>Modelo validado en la caracterización técnica de organizaciones locales 2026 ante la Alcaldía Local de Antonio Nariño — Mesa Local Más Bienestar.</li>
-            <li>Procesos individuales, grupales, presenciales, virtuales y comunitarios, con espacios gratuitos sostenidos por subsidios cruzados.</li>
+            <li>Metodología nacida y probada <strong>en territorio</strong>, con población de barrios populares: funciona igual en una escuela de fútbol de localidad que en un proceso de selección.</li>
           </ul>
+          <span class="pendiente" data-pide="EXPERIENCIA DEPORTIVA FORMAL: si existe algún club, escuela deportiva, liga o colegio con un proceso ya ejecutado (nombre, rol, años y si hubo contrato o convenio), se abre un bloque propio con su entidad y su periodo. Sin ese dato NO se escribe ninguna línea de vinculación deportiva."></span>
         </article>
 
         <article class="exp reveal">
@@ -399,8 +431,8 @@
             <p class="exp__meta"><span class="exp__rol">Comisionada de la mesa de educación</span><span class="exp__periodo">2020 — 2024</span></p>
           </header>
           <ul class="exp__logros">
-            <li>Nombrada comisionada por un periodo de cuatro años en la mesa de educación de la localidad.</li>
-            <li>Participación en política pública local, presupuestos participativos y control social.</li>
+            <li>Nombrada comisionada por un periodo de <strong>cuatro años</strong> en la mesa de educación de la localidad.</li>
+            <li>Participación en política pública local, presupuestos participativos y control social: deliberar, sostener una postura y construir acuerdos entre actores con intereses distintos —la misma interlocución que exige poner de acuerdo a directivos, cuerpo técnico, familia y colegio alrededor de un mismo joven.</li>
           </ul>
         </article>
 
@@ -410,9 +442,9 @@
             <p class="exp__meta"><span class="exp__rol">Miembro activa · Formadora de ciudadanas constructoras de paz</span><span class="exp__periodo">2016 — a la fecha</span></p>
           </header>
           <ul class="exp__logros">
-            <li>Reconocida por la Alcaldía Local por su destacada participación por los derechos de las mujeres en el Distrito Capital (2016–2023).</li>
-            <li>Sensibilización y prevención de violencias desde el empoderamiento de la mujer.</li>
-            <li>Fortalecimiento de organizaciones, grupos y redes de mujeres para el afrontamiento de situaciones de reto, adversidad y violencias, junto al manejo de adicciones.</li>
+            <li>Reconocida por la Alcaldía Local por su destacada participación por los derechos de las mujeres en el Distrito Capital (<strong>2016–2023</strong>).</li>
+            <li>Fortalecimiento de organizaciones, grupos y redes de mujeres para el afrontamiento de situaciones de <strong>reto, adversidad y violencias</strong>, junto al manejo de adicciones: sostener a un grupo bajo presión y prevenir el consumo.</li>
+            <li>Sensibilización y prevención de violencias desde el empoderamiento de la mujer: trato, respeto y resolución de conflictos dentro de grupos que sostienen un trabajo común —la base de la cohesión de cualquier equipo.</li>
           </ul>
         </article>
 
@@ -422,7 +454,8 @@
             <p class="exp__meta"><span class="exp__rol">Tallerista articulada</span><span class="exp__periodo">2019 — a la fecha</span></p>
           </header>
           <ul class="exp__logros">
-            <li>Base comunitaria de los entrenamientos grupales, talleres vivenciales, alfabetización emocional y la Sala de Reducción del Ego.</li>
+            <li>Base comunitaria de los entrenamientos grupales, talleres vivenciales y alfabetización emocional en un espacio público <strong>desde 2019</strong>: espacios comunitarios abiertos y gratuitos, con continuidad de años —sostener a un grupo al que nadie obliga a volver.</li>
+            <li><strong>Sala de Reducción del Ego</strong>: espacio propio sostenido en la Biblioteca.</li>
             <li>Acompañamiento a usuarios en procesos de lectura y comprensión de la mente, las emociones y la conducta humana.</li>
           </ul>
         </article>
@@ -677,6 +710,30 @@
             <span>Formamos a entrenadores, docentes y líderes para que sostengan el método en su propia escuela o barrio, con seguimiento y principios éticos. Es lo que hace el proceso sostenible.</span>
           </li>
         </ul>
+
+        <div class="publicos-web reveal" aria-label="A quién se entrena">
+          <article class="publico-web">
+            <img src="assets/voleibol.webp" alt="" width="1024" height="1024" loading="lazy">
+            <div>
+              <h4>Deportistas</h4>
+              <p>Miedo antes de competir, regulación del enojo, tolerancia a la frustración, relación sana con el error, manejo de la derrota, autoconfianza, comparación y rivalidad, y propósito personal.</p>
+            </div>
+          </article>
+          <article class="publico-web">
+            <img src="assets/equipo-circulo.webp" alt="" width="1200" height="800" loading="lazy">
+            <div>
+              <h4>Entrenadores</h4>
+              <p>Comunicación asertiva, manejo emocional de grupos, liderazgo consciente, herramientas para corregir sin destruir la confianza y resolución de conflictos.</p>
+            </div>
+          </article>
+          <article class="publico-web">
+            <img src="assets/familia-tribuna.webp" alt="" width="1024" height="1024" loading="lazy">
+            <div>
+              <h4>Madres, padres y cuidadores</h4>
+              <p>Manejo de expectativas, acompañamiento de triunfos y derrotas, prevención de la presión excesiva y vínculo entre familia, deportista y entrenador.</p>
+            </div>
+          </article>
+        </div>
 
         <div class="incluye reveal">
           <h3 class="incluye__titulo">Lo que siempre está incluido</h3>
